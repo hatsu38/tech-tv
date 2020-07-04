@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_085149) do
+ActiveRecord::Schema.define(version: 2020_07_04_095251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_movies", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_movies_on_event_id"
+    t.index ["movie_id"], name: "index_event_movies_on_movie_id"
+  end
 
   create_table "events", comment: "イベント", force: :cascade do |t|
     t.string "title", null: false, comment: "タイトル"
@@ -39,11 +48,10 @@ ActiveRecord::Schema.define(version: 2020_07_04_085149) do
 
   create_table "movies", comment: "動画", force: :cascade do |t|
     t.string "url", default: "", null: false, comment: "動画のURL"
-    t.bigint "event_id", null: false, comment: "イベントのID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_movies_on_event_id"
   end
 
-  add_foreign_key "movies", "events"
+  add_foreign_key "event_movies", "events"
+  add_foreign_key "event_movies", "movies"
 end
