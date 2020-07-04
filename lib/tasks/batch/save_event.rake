@@ -29,6 +29,7 @@ namespace :batch do
           Rails.logger.error(exception.message)
         end
       end
+      sleep 1
     end
   end
 end
