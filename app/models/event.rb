@@ -31,8 +31,19 @@ class Event < ApplicationRecord
   has_many :event_movies
   has_many :movies, through: :event_movies
 
-  validates_presence_of
-    :title, :catch, :description, :connpass_event_url, :hash_tag,
-    :started_at, :ended_at, :limit, :event_type, :address, :place
-    :accepted, :waiting, :connpass_event_id, :connpass_updated_at
+  validates :title, presence: true, length: {maximum: 255}
+  validates :catch, presence: true
+  validates :connpass_event_url, presence: true
+  validates :hash_tag, presence: true, length: {maximum: 255}
+  validates :started_at, presence: true
+  validates :ended_at, presence: true
+  validates :limit, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :event_type, presence: true, length: {maximum: 255}
+  validates :address, presence: true
+  validates :place, presence: true
+  validates :accepted, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :waiting, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
+  validates :connpass_updated_at, presence: true
+
 end
