@@ -25,7 +25,6 @@ namespace :batch do
 
         event.update_attributes(formated_params)
       end
-      sleep 0.5
     end
   end
 end
