@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_04_095251) do
     t.float "lon", comment: "開催会場の経度"
     t.integer "accepted", default: 0, null: false, comment: "参加者数"
     t.integer "waiting", default: 0, null: false, comment: "補欠者数"
+    t.integer "applicant", default: 0, null: false, comment: "応募者数"
     t.integer "connpass_event_id", null: false, comment: "connpass.com 上のイベントID"
     t.datetime "connpass_updated_at", null: false, comment: "connpass.com 上のイベント更新日時 (ISO-8601形式)"
     t.datetime "created_at", precision: 6, null: false

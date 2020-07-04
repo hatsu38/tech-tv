@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'kaminari' # Paginate
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use postgresql as the database for Active Record
@@ -32,8 +34,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-  gem 'pry-byebug'
-  gem 'pry-rails'
+  gem 'pry-byebug' # Binding.pry
+  gem 'pry-rails' # Binding.pry
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
 end
@@ -46,8 +48,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem "annotate"
-  gem "brakeman"
+  gem "annotate" # Add Column Info To model file
+  gem "brakeman" # Check Security
 end
 
 group :test do
@@ -57,9 +59,9 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "rails-controller-testing"
+  gem "rspec-rails" # Excute Test
+  gem "factory_bot_rails" # Create Test Data
+  gem "rails-controller-testing" # Controller Test
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

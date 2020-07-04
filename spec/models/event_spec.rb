@@ -5,6 +5,7 @@
 #  id                                                                    :bigint           not null, primary key
 #  accepted(参加者数)                                                    :integer          default(0), not null
 #  address(開催場所)                                                     :string           default(""), not null
+#  applicant(応募者数)                                                   :integer          default(0), not null
 #  catch(キャッチ)                                                       :text             default(""), not null
 #  connpass_event_url(connpass.com 上のURL)                              :string           default(""), not null
 #  connpass_updated_at(connpass.com 上のイベント更新日時 (ISO-8601形式)) :datetime         not null

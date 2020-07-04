@@ -61,6 +61,7 @@ def format_event_to_params(event)
     lon: event["lon"].present? ? event["lon"].to_i : nil,
     accepted: event["accepted"].to_i,
     waiting: event["waiting"].to_i,
+    applicant: event["waiting"].to_i + event["accepted"].to_i,
     connpass_event_id: event["event_id"].to_i,
     connpass_updated_at: event["updated_at"].to_datetime
   }

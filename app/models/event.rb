@@ -5,6 +5,7 @@
 #  id                                                                    :bigint           not null, primary key
 #  accepted(参加者数)                                                    :integer          default(0), not null
 #  address(開催場所)                                                     :string           default(""), not null
+#  applicant(応募者数)                                                   :integer          default(0), not null
 #  catch(キャッチ)                                                       :text             default(""), not null
 #  connpass_event_url(connpass.com 上のURL)                              :string           default(""), not null
 #  connpass_updated_at(connpass.com 上のイベント更新日時 (ISO-8601形式)) :datetime         not null
@@ -31,8 +32,25 @@ class Event < ApplicationRecord
   has_many :event_movies
   has_many :movies, through: :event_movies
 
-  validates_presence_of
-    :title, :catch, :description, :connpass_event_url, :hash_tag,
-    :started_at, :ended_at, :limit, :event_type, :address, :place
-    :accepted, :waiting, :connpass_event_id, :connpass_updated_at
+  validates :title, presence: true, length: {maximum: 255}
+  validates :catch, presence: true
+  validates :connpass_event_url, presence: true
+  validates :hash_tag, presence: true, length: {maximum: 255}
+  validates :started_at, presence: true
+  validates :ended_at, presence: true
+  validates :limit, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :event_type, presence: true, length: {maximum: 255}
+  validates :address, presence: true
+  validates :place, presence: true
+  validates :accepted, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :waiting, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :applicant, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
+  validates :connpass_updated_at, presence: true
+
+
+  scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
+  scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
+  scope :popular, -> { order(applicant: :desc)}
+
 end
