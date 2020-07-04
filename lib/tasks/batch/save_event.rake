@@ -23,7 +23,11 @@ namespace :batch do
         event = Event.find_or_initialize_by(connpass_event_id: connpass_event["event_id"])
         formated_params = format_event_to_params(connpass_event)
 
-        event.update_attributes(formated_params)
+        begin
+          event.update_attributes!(formated_params)
+        rescue => exception
+          Rails.logger.error(exception.message)
+        end
       end
     end
   end
