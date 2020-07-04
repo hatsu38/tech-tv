@@ -44,6 +44,7 @@ class Event < ApplicationRecord
   validates :place, presence: true
   validates :accepted, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
   validates :waiting, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
+  validates :applicant, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 7}
   validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
   validates :connpass_updated_at, presence: true
 
