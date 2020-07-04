@@ -14,8 +14,12 @@ namespace :batch do
       movie_link_ary = description.scan(MOVIE_LINK_PATTERN).uniq
 
       movie_link_ary.each do |movie_link|
-        movie = Movie.find_or_create_by!(url: movie_link)
-        EventMovie.find_or_create_by!(event_id: event_id, movie_id: movie.id)
+        begin
+          movie = Movie.find_or_create_by!(url: movie_link)
+          EventMovie.find_or_create_by!(event_id: event_id, movie_id: movie.id)
+        rescue => exception
+          Rails.logger.error(exception.message)
+        end
       end
     end
   end
