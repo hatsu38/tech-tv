@@ -10,7 +10,7 @@ namespace :batch do
   desc "イベント登録"
   task save_event: :environment do
     SEARCH_DATE_ARRAY.each do |date|
-      ym_query = fix_format_date(date)
+      ym_query = fix_format_date_to_ymquery(date)
       api_url = "#{REQUEST_URL_BY_YOUTUBE}&ym=#{ym_query}"
 
       response = get_response_body(api_url)
@@ -30,7 +30,7 @@ namespace :batch do
   end
 end
 
-def fix_format_date(date)
+def fix_format_date_to_ymquery(date)
   date.year.to_s + format('%02d', date.month)
 end
 
