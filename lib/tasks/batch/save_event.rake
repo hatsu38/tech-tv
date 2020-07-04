@@ -1,14 +1,14 @@
 namespace :batch do
   # bundle exec rails batch:save_event
-  REQUEST_BASE_URL = 'https://connpass.com/api/v1/event/'
-  YOUTUBE_LIVE_KEYWORD = "youtu.be"
-  GET_COUNT = 100
-  REQUEST_URL_BY_YOUTUBE = "#{REQUEST_BASE_URL}?keyword=#{YOUTUBE_LIVE_KEYWORD}&count=#{GET_COUNT}"
-  SEARCH_START_DATE = Date.new(2012,01,01)
-  SEARCH_DATE_ARRAY = (SEARCH_START_DATE..Date.today).map(&:beginning_of_month).uniq
-
   desc "イベント登録"
   task save_event: :environment do
+    REQUEST_BASE_URL = 'https://connpass.com/api/v1/event/'
+    YOUTUBE_LIVE_KEYWORD = "youtu.be"
+    GET_COUNT = 100
+    REQUEST_URL_BY_YOUTUBE = "#{REQUEST_BASE_URL}?keyword=#{YOUTUBE_LIVE_KEYWORD}&count=#{GET_COUNT}"
+    SEARCH_START_DATE = Date.new(2012,01,01)
+    SEARCH_DATE_ARRAY = (SEARCH_START_DATE..Date.today).map(&:beginning_of_month).uniq
+
     SEARCH_DATE_ARRAY.each do |date|
       ym_query = fix_format_date_to_ymquery(date)
       api_url = "#{REQUEST_URL_BY_YOUTUBE}&ym=#{ym_query}"

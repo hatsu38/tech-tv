@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_052056) do
+ActiveRecord::Schema.define(version: 2020_07_04_095251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_movies", force: :cascade do |t|
+    t.bigint "event_id", null: false, comment: "イベントID"
+    t.bigint "movie_id", null: false, comment: "動画ID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id", "movie_id"], name: "index_event_movies_on_event_id_and_movie_id", unique: true
+    t.index ["event_id"], name: "index_event_movies_on_event_id"
+    t.index ["movie_id"], name: "index_event_movies_on_movie_id"
+  end
 
   create_table "events", comment: "イベント", force: :cascade do |t|
     t.string "title", null: false, comment: "タイトル"
@@ -35,6 +45,16 @@ ActiveRecord::Schema.define(version: 2020_07_04_052056) do
     t.datetime "connpass_updated_at", null: false, comment: "connpass.com 上のイベント更新日時 (ISO-8601形式)"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["connpass_event_id"], name: "index_events_on_connpass_event_id", unique: true
   end
 
+  create_table "movies", comment: "動画", force: :cascade do |t|
+    t.string "url", default: "", null: false, comment: "動画のURL"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url"], name: "index_movies_on_url", unique: true
+  end
+
+  add_foreign_key "event_movies", "events"
+  add_foreign_key "event_movies", "movies"
 end

@@ -23,5 +23,16 @@
 #  updated_at                                                            :datetime         not null
 #  connpass_event_id(connpass.com 上のイベントID)                        :integer          not null
 #
+# Indexes
+#
+#  index_events_on_connpass_event_id  (connpass_event_id) UNIQUE
+#
 class Event < ApplicationRecord
+  has_many :event_movies
+  has_many :movies, through: :event_movies
+
+  validates_presence_of
+    :title, :catch, :description, :connpass_event_url, :hash_tag,
+    :started_at, :ended_at, :limit, :event_type, :address, :place
+    :accepted, :waiting, :connpass_event_id, :connpass_updated_at
 end

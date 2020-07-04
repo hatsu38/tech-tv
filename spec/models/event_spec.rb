@@ -23,6 +23,10 @@
 #  updated_at                                                            :datetime         not null
 #  connpass_event_id(connpass.com 上のイベントID)                        :integer          not null
 #
+# Indexes
+#
+#  index_events_on_connpass_event_id  (connpass_event_id) UNIQUE
+#
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
