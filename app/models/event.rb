@@ -23,5 +23,11 @@
 #  updated_at                                                            :datetime         not null
 #  connpass_event_id(connpass.com 上のイベントID)                        :integer          not null
 #
+# Indexes
+#
+#  index_events_on_connpass_event_id  (connpass_event_id) UNIQUE
+#
 class Event < ApplicationRecord
+  has_many :event_movies
+  has_many :movies, through: :event_movies
 end

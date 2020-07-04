@@ -7,6 +7,10 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
+# Indexes
+#
+#  index_movies_on_url  (url) UNIQUE
+#
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do

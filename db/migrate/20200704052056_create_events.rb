@@ -16,10 +16,12 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.float :lon, comment: '開催会場の経度'
       t.integer :accepted, null: false, default: 0, comment: '参加者数'
       t.integer :waiting, null: false, default: 0, comment: '補欠者数'
-      t.integer :connpass_event_id, null: false, unique: true, comment: 'connpass.com 上のイベントID'
+      t.integer :connpass_event_id, null: false, comment: 'connpass.com 上のイベントID'
       t.datetime :connpass_updated_at, null: false, comment: 'connpass.com 上のイベント更新日時 (ISO-8601形式)'
 
       t.timestamps
     end
+
+    add_index :events, :connpass_event_id, unique: true
   end
 end
