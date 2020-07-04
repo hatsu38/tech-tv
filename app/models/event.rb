@@ -48,4 +48,9 @@ class Event < ApplicationRecord
   validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
   validates :connpass_updated_at, presence: true
 
+
+  scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
+  scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
+  scope :popular, -> { order(applicant: :desc)}
+
 end
