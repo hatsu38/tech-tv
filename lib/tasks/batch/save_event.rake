@@ -27,6 +27,7 @@ namespace :batch do
           event.update_attributes!(formated_params)
         rescue => exception
           Rails.logger.error(exception.message)
+          Raven.capture_exception(e)
         end
       end
       sleep 1

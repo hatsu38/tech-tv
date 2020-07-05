@@ -90,7 +90,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Inserts middleware to perform automatic connection switching.
+  # Inserts middleware to perform gautomatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
   # to send a subsequent read to the primary.
@@ -110,4 +110,9 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+end
+
+# Sentry
+Raven.configure do |config|
+  config.dsn = ENV['SENTRY_DSN']
 end

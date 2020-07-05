@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'dotenv-rails' # .envファイル
+gem "sentry-raven" # Error検知
 gem 'kaminari' # Paginate
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -5,7 +5,7 @@ namespace :batch do
     YOUTUBE_LIVE_KEYWORD = "youtu.be"
     MOVIE_LINK_PATTERN = /https?:\/\/youtu.be\/\w+/
 
-    events = Event.where('description like ? ', "%youtu.be%").pluck(:id, :description)
+    events = Event.where('description like ? ', "%#{YOUTUBE_LIVE_KEYWORD}%").pluck(:id, :description)
     next if events.size == Movie.count
 
     events.each do |event|
@@ -13,12 +13,13 @@ namespace :batch do
       description = event[1]
       movie_link_ary = description.scan(MOVIE_LINK_PATTERN).uniq
 
-      movie_link_ary.each do |movie_link|
+      movie_link_ary.each_with_index do |movie_link, i|
         begin
           movie = Movie.find_or_create_by!(url: movie_link)
           EventMovie.find_or_create_by!(event_id: event_id, movie_id: movie.id)
         rescue => exception
           Rails.logger.error(exception.message)
+          Raven.capture_exception(exception)
         end
       end
     end
