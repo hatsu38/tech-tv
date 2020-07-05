@@ -8,6 +8,17 @@ $ heroku login
 $ git push heroku master
 ```
 
+## 環境変数をHerokuにセット
+```
+$ heroku config:set SENTRY_DSN=""
+```
+
+環境変数を確認
+```
+$ heroku config
+```
+
+
 ## タスクの実行
 - イベントの新規登録を行う
 - Herokuで毎時10分に実行される
