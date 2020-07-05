@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
       #{e.message},
       #{e.class}"
     )
+    Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
     render json: { message: "not found", status: 404 }
   end
 
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::Base
       #{e.message},
       #{e.class}"
     )
-
+    Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
     render json: { message: "internal error", status: 500 }
   end
 end
