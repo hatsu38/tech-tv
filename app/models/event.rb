@@ -32,6 +32,9 @@ class Event < ApplicationRecord
   has_many :event_movies
   has_many :movies, through: :event_movies
 
+  has_many :event_tags
+  has_many :tags, through: :event_tags
+
   validates :title, presence: true, length: {maximum: 255}
   validates :connpass_event_url, presence: true
   validates :started_at, presence: true
@@ -48,7 +51,4 @@ class Event < ApplicationRecord
   scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
   scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
   scope :popular, -> { order(applicant: :desc)}
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  has_and_belongs_to_many :tags
 end
