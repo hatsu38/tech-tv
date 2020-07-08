@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_095251) do
+ActiveRecord::Schema.define(version: 2020_07_08_090744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2020_07_04_095251) do
     t.index ["event_id", "movie_id"], name: "index_event_movies_on_event_id_and_movie_id", unique: true
     t.index ["event_id"], name: "index_event_movies_on_event_id"
     t.index ["movie_id"], name: "index_event_movies_on_movie_id"
+  end
+
+  create_table "event_tags", comment: "イベントとタグの紐付け", force: :cascade do |t|
+    t.bigint "event_id", null: false, comment: "イベントID"
+    t.bigint "tag_id", null: false, comment: "タグID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_tags_on_event_id"
+    t.index ["tag_id"], name: "index_event_tags_on_tag_id"
   end
 
   create_table "events", comment: "イベント", force: :cascade do |t|
@@ -56,6 +65,14 @@ ActiveRecord::Schema.define(version: 2020_07_04_095251) do
     t.index ["url"], name: "index_movies_on_url", unique: true
   end
 
+  create_table "tags", comment: "タグ", force: :cascade do |t|
+    t.string "name", null: false, comment: "名前"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "event_movies", "events"
   add_foreign_key "event_movies", "movies"
+  add_foreign_key "event_tags", "events"
+  add_foreign_key "event_tags", "tags"
 end

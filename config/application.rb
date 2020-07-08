@@ -32,3 +32,10 @@ module ConnpassTubeApi
     # the framework and any gems in your application.
   end
 end
+
+
+# Sentry
+Raven.configure do |config|
+  config.environments = %w[production]
+  config.dsn = ENV['SENTRY_DSN']
+end

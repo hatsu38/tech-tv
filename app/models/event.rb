@@ -32,6 +32,9 @@ class Event < ApplicationRecord
   has_many :event_movies
   has_many :movies, through: :event_movies
 
+  has_many :event_tags
+  has_many :tags, through: :event_tags
+
   validates :title, presence: true, length: {maximum: 255}
   validates :connpass_event_url, presence: true
   validates :started_at, presence: true
@@ -48,5 +51,12 @@ class Event < ApplicationRecord
   scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
   scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
   scope :popular, -> { order(applicant: :desc)}
+  scope :serch_by_keyword, -> (serch) do
+    where('title LIKE ?', "%#{serch}%")
+    .or(where('catch LIKE ?', "%#{serch}%"))
+    .or(where('hash_tag LIKE ?', "%#{serch}%"))
+    .or(where('description LIKE ?', "%#{serch}%"))
+  end
 
+  scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
 end

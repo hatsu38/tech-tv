@@ -2,12 +2,12 @@ class Api::V1::EventsController <ApplicationController
   ITEMS_PER_PAGE = 10
 
   def index
-    events = event_search_range(params)
-                   .select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant)
-                   .popular
-                   .page(params[:page])
-                   .per(ITEMS_PER_PAGE)
-    render json: { events: events, total_count: events.total_count }
+    @events = event_search_range(params)
+              .includes(:tags)
+              .select_columns
+              .popular
+              .page(params[:page])
+              .per(ITEMS_PER_PAGE)
   end
 
   def show
