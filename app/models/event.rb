@@ -49,4 +49,6 @@ class Event < ApplicationRecord
   scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
   scope :popular, -> { order(applicant: :desc)}
 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  has_and_belongs_to_many :tags
 end

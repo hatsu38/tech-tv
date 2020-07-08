@@ -518,7 +518,7 @@ ary.each_with_index do |ele, i|
 end
 
 
-File.open("config/divisions/languages.yml", mode = "w") do |f|
+File.open("config/divisions/tags.yml", mode = "w") do |f|
   f.write(write_text)  # ファイルに書き込む
 end
 
