@@ -55,7 +55,6 @@ class Event < ApplicationRecord
     where('title LIKE ?', "%#{serch}%")
     .or(where('catch LIKE ?', "%#{serch}%"))
     .or(where('hash_tag LIKE ?', "%#{serch}%"))
-    .or(where('description LIKE ?', "%#{serch}%"))
   end
 
   scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
