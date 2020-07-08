@@ -4,7 +4,7 @@ class Api::V1::EventsController <ApplicationController
   def index
     @events = event_search_range(params)
               .includes(:tags)
-              .select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant)
+              .select_columns
               .popular
               .page(params[:page])
               .per(ITEMS_PER_PAGE)
