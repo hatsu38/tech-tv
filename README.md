@@ -33,6 +33,18 @@ bundle exec rails batch:save_event
 $ heroku run rails batch:save_movie
 ```
 
+bundle exec rails batch:save_event_tag
+- イベントとタグの紐付けを行う
+```
+$ heroku run rails batch:save_event_tag
+```
+
+bundle exec rails batch:save_event_tag_diff_days[1]
+- イベントとタグの紐付けを行う。前日から新しいイベントのみ。
+```
+$ heroku run rails batch:save_event_tag_diff_days[1]
+```
+
 ## DB接続情報を確認
 ```
 $ heroku pg:credentials:url --app connpass-tube-api
