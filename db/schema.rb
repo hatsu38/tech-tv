@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2020_07_08_090744) do
     t.index ["movie_id"], name: "index_event_movies_on_movie_id"
   end
 
-  create_table "event_tags", force: :cascade do |t|
-    t.bigint "event_id", null: false
-    t.bigint "tag_id", null: false
+  create_table "event_tags", comment: "イベントとタグの紐付け", force: :cascade do |t|
+    t.bigint "event_id", null: false, comment: "イベントID"
+    t.bigint "tag_id", null: false, comment: "タグID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_event_tags_on_event_id"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_090744) do
     t.index ["url"], name: "index_movies_on_url", unique: true
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
+  create_table "tags", comment: "タグ", force: :cascade do |t|
+    t.string "name", null: false, comment: "名前"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

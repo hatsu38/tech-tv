@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+system('bundle exec rails batch:save_event')
+system('bundle exec rails batch:save_movie')
+
 Dir.glob("#{Rails.root}/db/seeds/*.yml").each do |yaml_filename|
   # yamlのファイル名から、対応するモデルクラスを特定し、クラスをロードする
   # 下記行が無いと、「ArgumentError: undefined class/module」が発生する。

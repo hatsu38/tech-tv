@@ -2,11 +2,11 @@
 #
 # Table name: event_tags
 #
-#  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  event_id   :bigint           not null
-#  tag_id     :bigint           not null
+#  id                   :bigint           not null, primary key
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  event_id(イベントID) :bigint           not null
+#  tag_id(タグID)       :bigint           not null
 #
 # Indexes
 #
