@@ -23,3 +23,5 @@ Dir.glob("#{Rails.root}/db/seeds/*.yml").each do |yaml_filename|
     end
   end
 end
+
+system('bundle exec rails batch:save_event_tag')

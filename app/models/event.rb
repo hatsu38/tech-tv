@@ -51,4 +51,10 @@ class Event < ApplicationRecord
   scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
   scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
   scope :popular, -> { order(applicant: :desc)}
+  scope :serch_by_keyword, -> (serch) do
+    where('title LIKE ?', "%#{serch}%")
+    .or(where('catch LIKE ?', "%#{serch}%"))
+    .or(where('hash_tag LIKE ?', "%#{serch}%"))
+    .or(where('description LIKE ?', "%#{serch}%"))
+  end
 end
