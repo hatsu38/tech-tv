@@ -58,4 +58,7 @@ class Event < ApplicationRecord
   end
 
   scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
+
+
+  scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
 end
