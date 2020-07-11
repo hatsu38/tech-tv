@@ -47,7 +47,6 @@ class Event < ApplicationRecord
   validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
   validates :connpass_updated_at, presence: true
 
-
   scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
   scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
   scope :popular, -> { order(applicant: :desc)}
@@ -58,7 +57,5 @@ class Event < ApplicationRecord
   end
 
   scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
-
-
   scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
 end
