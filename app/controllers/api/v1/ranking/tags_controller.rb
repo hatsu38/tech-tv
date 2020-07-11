@@ -3,8 +3,6 @@ class Api::V1::Ranking::TagsController <ApplicationController
 
   def index
     per_num = (params[:num] || DEFAULT_GET_NUMS).to_i
-    Rails.cache.fetch("#{request.url}/index", expires_in: 10.minutes) do
-      @tags = params[:ranking] === 'related' ? Event.popular_event_tags(per_num) : Tag.related_event_many_order(per_num)
-    end
+    @tags = params[:ranking] === 'related' ? Event.popular_event_tags(per_num) : Tag.related_event_many_order(per_num)
   end
 end
