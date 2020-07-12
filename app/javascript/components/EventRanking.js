@@ -123,6 +123,3 @@ export default class EventRanking extends React.Component {
     );
   }
 }
-
-// EventRanking.propTypes = propTypes
-

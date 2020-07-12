@@ -8,7 +8,7 @@ import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 
 const propTypes = {
-  event: PropTypes.object.isRequired,
+  event: PropTypes.object,
   tags: PropTypes.array
 }
 

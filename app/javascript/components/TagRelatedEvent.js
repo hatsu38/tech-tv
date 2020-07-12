@@ -6,7 +6,7 @@ const propTypes = {
   tag: PropTypes.object.isRequired
 }
 
-export default class TagsRelatedEvent extends Component {
+export default class TagRelatedEvent extends Component {
   constructor(props) {
     super(props);
   }
@@ -25,4 +25,4 @@ export default class TagsRelatedEvent extends Component {
   }
 }
 
-TagsRelatedEvent.propTypes = propTypes
+TagRelatedEvent.propTypes = propTypes

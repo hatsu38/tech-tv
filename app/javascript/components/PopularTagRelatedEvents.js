@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import TagsRelatedEvent from '../components/TagsRelatedEvent'
+import TagRelatedEvents from '../components/TagRelatedEvents'
 const REQUEST_API_BASE_URL = "/api/v1/ranking/tags"
 
-export default class TagsRelatedEvents extends Component {
+export default class PopularTagRelatedEvents extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       tags: []
     }
@@ -29,11 +29,7 @@ export default class TagsRelatedEvents extends Component {
     const { tags } = this.state
     return (
       <>
-        {tags &&
-          tags.map((tag) =>
-            <TagsRelatedEvent key={tag.id} tag={tag} />
-          )
-        }
+        {tags && <TagRelatedEvents tags={tags} />}
       </>
     )
   }
