@@ -2,7 +2,7 @@ import React from "react"
 import EventCards from '../components/EventCards'
 import { Nav, Card, Button } from "react-bootstrap"
 import axios from 'axios'
-const REQUEST_API_BASE_URL = "/api/v1/events"
+const REQUEST_API_BASE_URL = "/api/v1/events/"
 
 export default class EventRanking extends React.Component {
   constructor(props) {
