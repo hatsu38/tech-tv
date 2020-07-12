@@ -1,3 +1,7 @@
 <%= react_component('YouTube', {movies: @movies}) %>
 <%= react_component('EventDetail', {event: @event, tags: @tags}) %>
-<%= react_component('EventDetailTagRelatedEvents', {event: @event }) %>
+<% if @tags.present? %>
+  <%= react_component('EventDetailTagRelatedEvents', {event: @event }) %>
+<% else %>
+  <%= react_component('PopularTagRelatedEvents') %>
+<% end %>

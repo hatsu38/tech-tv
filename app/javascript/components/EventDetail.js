@@ -6,6 +6,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
+import EventSnsShare from '../components/EventSnsShare'
 
 const propTypes = {
   event: PropTypes.object,
@@ -49,6 +50,7 @@ export default class EventDetail extends Component {
                 <Badge key={tag.id} pill className="mr-1 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
               )}
             </div>
+            <EventSnsShare event={event} />
           </Card.Body>
         </Card>
       </>

@@ -55,3 +55,14 @@ body{
     font-size: 18px;
   }
 }
+
+.link-copy-button--wrapper{
+  display: inline;
+  padding: 4.8px 9px 9px 9px;
+  background-color: #343a40;
+  border-radius: 50%;
+  color: white;
+  svg{
+    font-size: 16px;
+  }
+}
