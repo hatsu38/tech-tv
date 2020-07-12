@@ -53,7 +53,6 @@ export default class EventRanking extends React.Component {
   async fetchEvents() {
     this.setState({isLoading: true})
     const { events, page, range } = this.state
-    console.log("======fetchEvents====")
     const api = `${REQUEST_API_BASE_URL}?range=${range}&page=${page}`
     const apiResponse = await axios.get(api).catch(null)
 

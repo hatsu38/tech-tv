@@ -26,7 +26,7 @@ export default class EventCard extends Component {
     return (
       <Card className="border-top-none">
         <Card.Body>
-          <Card.Title onClick={this.toEventDetailPage}>{event.title}</Card.Title>
+          <Card.Title className="cursor" onClick={this.toEventDetailPage}>{event.title}</Card.Title>
           <Card.Text className="text--light">
             <HoldingDateTime
               startDateTime={event.started_at}
