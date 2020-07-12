@@ -21,7 +21,7 @@ export default class EventCard extends Component {
 
     return (
       <>
-        <Card>
+        <Card className="border-top-none">
           <Card.Body>
             <Card.Title>{event.title}</Card.Title>
             <Card.Text className="text--light">
@@ -35,7 +35,7 @@ export default class EventCard extends Component {
             </Card.Text>
             <div>
               {tags && tags.map((tag) =>
-                <Badge key={tag.id} pill className="mr-5 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
+                <Badge key={tag.id} pill className="mr-1 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
               )}
             </div>
           </Card.Body>
