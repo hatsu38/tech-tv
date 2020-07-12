@@ -15,6 +15,10 @@ export default class EventCard extends Component {
     super(props);
   }
 
+  toEventDetailPage = () => {
+    window.location = `/events/${this.props.event.id}`
+  }
+
   render() {
     const event = this.props.event
     const tags = event.tags
@@ -22,11 +26,9 @@ export default class EventCard extends Component {
 
     return (
       <Router>
-          <Card className="border-top-none">
-            <Card.Body>
-              <Link to={`/events/${event.id}`}>
-                <Card.Title>{event.title}</Card.Title>
-              </Link>
+        <Card className="border-top-none">
+          <Card.Body>
+            <Card.Title onClick={this.toEventDetailPage}>{event.title}</Card.Title>
             <Card.Text className="text--light">
               <HoldingDateTime
                 startDateTime={event.started_at}
