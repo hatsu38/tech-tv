@@ -23,23 +23,16 @@ export default class YouTube extends Component {
     return `https://www.youtube.com/embed/${youtubeId}`
   }
 
-
-  renderYouTube() {
-    return (
-      this.props.movies.map(movie =>
-        <div key={movie.id} className="frame-wrapper__video">
-          <iframe width="640" height="360" src={this.formatEmbedYoutubeURL(movie.url)} />
-        </div>
-      )
-    )
-  }
-
   render() {
     const { movies } = this.props
     return (
       <>
         <div>
-          {movies && this.renderYouTube()}
+          {movies && movies.map(movie =>
+            <div key={movie.id} className="frame-wrapper__video">
+              <iframe width="640" height="360" src={this.formatEmbedYoutubeURL(movie.url)} />
+            </div>
+          )}
         </div>
       </>
     )
