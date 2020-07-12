@@ -1,9 +1,8 @@
 import React from "react"
-import EventCard from '../components/EventCard'
+import EventCards from '../components/EventCards'
 import { Nav, Card, Button } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/events"
-
 
 export default class EventRanking extends React.Component {
   constructor(props) {
@@ -106,7 +105,7 @@ export default class EventRanking extends React.Component {
             <Nav.Link eventKey="all">すべて</Nav.Link>
           </Nav.Item>
         </Nav>
-        {events && events.map((event) => <EventCard event={event} key={event.id} />)}
+        {events && <EventCards events={events} />}
         {hasMore &&
           <div className="moreReadButton--wrapper mb-40">
             <Button
