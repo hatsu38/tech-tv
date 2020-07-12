@@ -10,10 +10,10 @@ class EventsController <ApplicationController
               .per(ITEMS_PER_PAGE)
   end
 
-  # def show
-  #   event = Event.find(params[:id])
-  #   render json: { event: event, movies: event.movies }
-  # end
+  def show
+    @event = Event.find(params[:id])
+    @movies = @event.movies
+  end
 
   private
 

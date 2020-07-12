@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Card, Badge } from 'react-bootstrap';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 
 import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
@@ -20,10 +21,12 @@ export default class EventCard extends Component {
     if(!event) {return null}
 
     return (
-      <>
-        <Card className="border-top-none">
-          <Card.Body>
-            <Card.Title>{event.title}</Card.Title>
+      <Router>
+          <Card className="border-top-none">
+            <Card.Body>
+              <Link to={`/events/${event.id}`}>
+                <Card.Title>{event.title}</Card.Title>
+              </Link>
             <Card.Text className="text--light">
               <HoldingDateTime
                 startDateTime={event.started_at}
@@ -40,7 +43,7 @@ export default class EventCard extends Component {
             </div>
           </Card.Body>
         </Card>
-      </>
+      </Router>
     )
   }
 }
