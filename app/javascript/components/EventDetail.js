@@ -18,7 +18,7 @@ export default class EventDetail extends Component {
 
   render() {
     const event = this.props.event
-    console.log("EVENTE", event)
+
     return (
       <>
         <Card>
