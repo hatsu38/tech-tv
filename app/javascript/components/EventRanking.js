@@ -110,8 +110,8 @@ export default class EventRanking extends React.Component {
           <div className="moreReadButton--wrapper mb-40">
             <Button
               block
-              className="moreReadButton"
               variant="outline-secondary"
+              className="padding-sm"
               disabled={isLoading}
               onClick={isLoading ? null : this.fetchEvents}
             >
