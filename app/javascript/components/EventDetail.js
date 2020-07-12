@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,7 +8,8 @@ import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 
 const propTypes = {
-  event: PropTypes.object.isRequired,
+  event: PropTypes.object,
+  tags: PropTypes.array
 }
 
 export default class EventDetail extends Component {
@@ -17,7 +18,7 @@ export default class EventDetail extends Component {
   }
 
   render() {
-    const event = this.props.event
+    const {event, tags} = this.props
 
     return (
       <>
@@ -43,6 +44,11 @@ export default class EventDetail extends Component {
                 元のイベントページへ
               </a>
             </Card.Text>
+            <div>
+              {tags && tags.map((tag) =>
+                <Badge key={tag.id} pill className="mr-1 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
+              )}
+            </div>
           </Card.Body>
         </Card>
       </>

@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import TagsRelatedEvent from '../components/TagsRelatedEvent'
-const REQUEST_API_BASE_URL = "/api/v1/ranking/tags"
+import PropTypes from 'prop-types';
+import TagRelatedEvents from '../components/TagRelatedEvents'
+const REQUEST_API_BASE_URL = "/api/v1/events/"
 
-export default class TagsRelatedEvents extends Component {
+const propTypes = {
+  event: PropTypes.object.isRequired
+}
+
+
+export default class EventDetailTagRelatedEvents extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       tags: []
     }
@@ -16,7 +22,7 @@ export default class TagsRelatedEvents extends Component {
   }
 
   async fetchTagsRelatedEvent() {
-    const api = `${REQUEST_API_BASE_URL}?ranking=related&tags_num=10&events_num=5`
+    const api = `${REQUEST_API_BASE_URL}/${this.props.event.id}`
     const apiResponse = await axios.get(api).catch(null)
     if(!apiResponse || !apiResponse.data || apiResponse.data.status === 500) { return true }
 
@@ -29,12 +35,10 @@ export default class TagsRelatedEvents extends Component {
     const { tags } = this.state
     return (
       <>
-        {tags &&
-          tags.map((tag) =>
-            <TagsRelatedEvent key={tag.id} tag={tag} />
-          )
-        }
+        {tags && <TagRelatedEvents tags={tags} />}
       </>
     )
   }
 }
+
+EventDetailTagRelatedEvents.propTypes = propTypes

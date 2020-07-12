@@ -13,6 +13,7 @@ class EventsController <ApplicationController
   def show
     @event = Event.find(params[:id])
     @movies = @event.movies
+    @tags = @event.tags
   end
 
   private

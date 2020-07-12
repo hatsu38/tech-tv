@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {
-  movies: PropTypes.array.isRequired
+  movies: PropTypes.array
 };
 
 export default class YouTube extends Component {
