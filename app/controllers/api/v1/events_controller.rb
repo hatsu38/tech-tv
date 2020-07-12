@@ -11,8 +11,9 @@ class Api::V1::EventsController <ApplicationController
   end
 
   def show
-    event = Event.find(params[:id])
-    render json: { event: event, movies: event.movies }
+    @event = Event.find(params[:id])
+    @movies = @event.movies
+    @tags = @event.tags
   end
 
   private
