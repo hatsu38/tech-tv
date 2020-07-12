@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TagsRelatedEvent from '../components/TagsRelatedEvent'
-const REQUEST_API_BASE_URL = "https://connpass-tube-api.herokuapp.com/api/v1/ranking/tags"
+const REQUEST_API_BASE_URL = "/api/v1/ranking/tags"
 
 export default class TagsRelatedEvents extends Component {
   constructor(props) {
