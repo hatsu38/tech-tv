@@ -7,6 +7,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 import EventSnsShare from '../components/EventSnsShare'
+import Tags from '../components/Tags'
 
 const propTypes = {
   event: PropTypes.object,
@@ -45,11 +46,7 @@ export default class EventDetail extends Component {
                 元のイベントページへ
               </a>
             </Card.Text>
-            <div>
-              {tags && tags.map((tag) =>
-                <Badge key={tag.id} pill className="mr-1 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
-              )}
-            </div>
+            {tags && <Tags tags={tags} />}
             <EventSnsShare event={event} />
           </Card.Body>
         </Card>

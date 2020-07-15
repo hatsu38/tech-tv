@@ -5,7 +5,8 @@ import PageTitle from '../components/PageTitle'
 
 const propTypes = {
   tag: PropTypes.object.isRequired,
-  events: PropTypes.array.isRequired
+  events: PropTypes.array.isRequired,
+  totalCount: PropTypes.number.isRequired,
 }
 
 export default class TagRelatedEvent extends Component {
@@ -14,13 +15,12 @@ export default class TagRelatedEvent extends Component {
   }
 
   render() {
-    const tag = this.props.tag
-    const events = this.props.events
+    const {tag, events, totalCount} = this.props
     return (
       <>
         <div className="white--background border-top">
-          <PageTitle eventCount={events.length} title={tag.name} />
-          <hr />
+          <PageTitle eventCount={totalCount} title={tag.name} />
+          <hr className="marginless" />
           {events && <EventCards events={events} />}
         </div>
       </>
