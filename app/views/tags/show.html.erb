@@ -1,2 +1,13 @@
+<% content_for :title, "#{@tag.name}タグの勉強会一覧 | ConnpassTube" %>
+<%
+  content_for :meta_description,
+  "ConnpassTube（#{@tag.name}）一覧です。ConnpassTubeでは、勉強会のイベントを紹介しています。"
+%>
+<% content_for :meta_keywords, "#{@tag.name}" %>
+<% content_for :og_title, "ConnpassTube（#{@tag.name}タグの勉強会一覧" %>
+<%
+  content_for :og_description,
+  "ConnpassTube（#{@tag.name}）タグの勉強会一覧です。ConnpassTubeでは、勉強会のイベントを紹介しています。"
+%>
 <%= react_component('TagDetail', {tag: @tag, events: @events, totalCount: @total_count}) %>
 <%= react_component('PopularTagRelatedEvents') %>

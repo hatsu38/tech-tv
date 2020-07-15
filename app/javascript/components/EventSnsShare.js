@@ -15,16 +15,17 @@ export default class EventSnsShare extends Component {
   }
 
   render() {
-    const shareURL = location.href.replace(location.search, "")
     const { event } = this.props
+    const shareURL = location.href.replace(location.search, "")
+    const shareTitle = event.title + " | ConnpassTube" + "\n\n"
     return (
       <>
         <div className="display-float text-center mt-25">
           <h5 className="f6 marginless" style={{color: "gray"}}>このイベントをシェアする</h5>
-          <TwitterShareButton　className="margin-sm" title={event.title + "\n\n"} url={shareURL} >
+          <TwitterShareButton　className="margin-sm" title={shareTitle} url={shareURL} >
             <TwitterIcon size={32} round />
           </TwitterShareButton>
-          <FacebookShareButton className="margin-sm" url={shareURL} quote={event.title}>
+          <FacebookShareButton className="margin-sm" url={shareURL} quote={shareTitle}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
           <CopyToClipboard text={shareURL}>
