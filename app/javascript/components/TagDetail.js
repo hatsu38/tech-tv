@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import EventCards from '../components/EventCards'
 import PageTitle from '../components/PageTitle'
+import Hr from '../components/Hr'
 
 const propTypes = {
   tag: PropTypes.object.isRequired,
@@ -20,7 +21,7 @@ export default class TagRelatedEvent extends Component {
       <>
         <div className="white--background border-top">
           <PageTitle eventCount={totalCount} title={tag.name} />
-          <hr className="marginless" />
+          <Hr />
           {events && <EventCards events={events} />}
         </div>
       </>

@@ -11,13 +11,27 @@ export default class TagRelatedEvent extends Component {
     super(props);
   }
 
+  toTagDetailPage = () => {
+    window.location = `tags/${this.props.tag.id}`
+  }
+
   render() {
     const tag = this.props.tag
     const events = this.props.tag.events
     return (
       <>
-        <div className="white--background border-top">
-          <h2 className="f4 section-title-main-text mt-20 mb-0 pt-20 pb-20 pl-10 border-bottom">{tag.name}</h2>
+        <div className="border-top">
+          <div className="white--background mt-20 mb-0 pt-20 pb-20 pl-20 pr-20 border-bottom display-flex">
+            <h2
+              className="f4 section-title-main-text"
+              onClick={this.toTagDetailPage}
+            >#{tag.name}</h2>
+            <p className="more">
+              <a onClick={this.toTagDetailPage}>
+                もっと見る
+              </a>
+            </p>
+          </div>
           {events && <EventCards events={events} />}
         </div>
       </>
