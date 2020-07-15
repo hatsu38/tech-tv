@@ -1,5 +1,6 @@
 import React from "react"
 import EventCards from '../components/EventCards'
+import PageTitle from '../components/PageTitle'
 import { Nav, Card, Button } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/events/"
@@ -86,14 +87,7 @@ export default class EventRanking extends React.Component {
     const { events, isLoading, hasMore, range, totalEventsCount } = this.state
     return (
       <React.Fragment>
-        <Card className="text-center border-none">
-          <Card.Body>
-            <Card.Title className="f3 mb-10">人気ランキング</Card.Title>
-            <div className="eventCount">
-              <strong>{totalEventsCount}</strong>件のイベント
-            </div>
-          </Card.Body>
-        </Card>
+        <PageTitle eventCount={totalEventsCount} title="人気ランキング" />
         <Nav fill variant="tabs" defaultActiveKey={range} onSelect={this.handleSelect}>
           <Nav.Item>
             <Nav.Link eventKey="recent">最近</Nav.Link>

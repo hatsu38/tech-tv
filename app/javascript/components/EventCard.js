@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { Card, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
+import Tags from '../components/Tags'
 
 const propTypes = {
   event: PropTypes.object.isRequired,
@@ -36,11 +37,7 @@ export default class EventCard extends Component {
           <Card.Text className="text--light">
             <ApplicationAndCapacityCount event={event} />
           </Card.Text>
-          <div>
-            {tags && tags.map((tag) =>
-              <Badge key={tag.id} pill className="mr-1 bg--darken_1" style={{color: 'white'}}>{tag.name}</Badge>
-            )}
-          </div>
+          {tags && <Tags tags={tags} />}
         </Card.Body>
       </Card>
     )
