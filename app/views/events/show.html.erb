@@ -1,14 +1,14 @@
 
-<% content_for :title, "#{@event.title}の勉強会 | ConnpassTube" %>
+<% content_for :title, "#{@event.title}の勉強会 | こんぱすちゅ〜ぶ" %>
 <%
   content_for :meta_description,
-  "「#{@event.title}」の勉強会詳細です。ConnpassTubeでは、勉強会のイベントを紹介しています。"
+  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
 %>
 <% content_for :meta_keywords, "#{@event.title}" %>
-<% content_for :og_title, "#{@event.title}の勉強会 | ConnpassTube" %>
+<% content_for :og_title, "#{@event.title}の勉強会 | こんぱすちゅ〜ぶ" %>
 <%
   content_for :og_description,
-  "「#{@event.title}」の勉強会詳細です。ConnpassTubeでは、勉強会のイベントを紹介しています。"
+  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
 %>
 <%= react_component('YouTube', {movies: @movies}) %>
 <%= react_component('EventDetail', {event: @event, tags: @tags}) %>
