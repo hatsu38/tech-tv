@@ -49,6 +49,17 @@ export default class NewlyEvents extends React.Component {
     this.setState({isLoading: false})
   }
 
+  updatePageAndHasMore = () => {
+    const { events, totalEventsCount, page } = this.state
+    if(totalEventsCount > events.length){
+      const nextPage = page + 1
+      this.setState({hasMore: true})
+      this.setState({page: nextPage})
+    } else {
+      this.setState({hasMore: false})
+    }
+  }
+
   render() {
     const { events, isLoading, hasMore, totalEventsCount } = this.state
     if(events.length < 1){ return false }
