@@ -14,6 +14,7 @@
 <%= react_component('EventDetail', {event: @event, tags: @tags}) %>
 <% if @tags.present? %>
   <%= react_component('EventDetailTagRelatedEvents', {event: @event }) %>
+  <%= react_component('NewlyEvents') %>
 <% else %>
   <%= react_component('PopularTagRelatedEvents') %>
 <% end %>

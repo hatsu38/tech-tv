@@ -4,7 +4,7 @@ import PageTitle from '../components/PageTitle'
 import Hr from '../components/Hr'
 import { Button } from "react-bootstrap"
 import axios from 'axios'
-const REQUEST_API_BASE_URL = "/api/v1/newly_events/"
+const REQUEST_API_BASE_URL = "/api/v1/newly_events"
 
 export default class NewlyEvents extends React.Component {
   constructor(props) {

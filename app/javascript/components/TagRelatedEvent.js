@@ -23,10 +23,10 @@ export default class TagRelatedEvent extends Component {
         <div className="border-top">
           <div className="white--background mt-20 mb-0 pt-20 pb-20 pl-20 pr-20 border-bottom display-flex">
             <h2
-              className="f4 section-title-main-text"
+              className="f4 section-title-main-text marginless"
               onClick={this.toTagDetailPage}
             >#{tag.name}</h2>
-            <p className="link--text">
+            <p className="link--text marginless">
               <a onClick={this.toTagDetailPage}>
                 もっと見る
               </a>
