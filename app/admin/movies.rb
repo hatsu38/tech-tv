@@ -5,7 +5,7 @@ ActiveAdmin.register Movie do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :url
+  permit_params :deleted_at
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Movie do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end
