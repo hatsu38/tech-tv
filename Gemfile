@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'activeadmin' #管理画面
+gem 'devise' # 管理画面用
+
 gem 'react-rails' #reactを使用
 
 gem 'rack-cors' # corsの設定
