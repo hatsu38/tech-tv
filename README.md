@@ -51,6 +51,16 @@ $ heroku run rails batch:save_event_tag_diff_days[1]
 $ heroku pg:credentials:url --app connpass-tube-api
 ```
 
+## 環境変数の追加
+```
+heroku config:set ENV_NAME=value
+```
+
+## Migrate
+```
+heroku run rails db:migrate
+```
+
 ## Heroku Scheduler(バッチ)
 - https://dashboard.heroku.com/apps/connpass-tube-api/scheduler
 
