@@ -32,3 +32,7 @@ yarn-debug.log*
 vendor/**
 
 .env
+
+# Sitemap
+public/sitemap.xml.gz
+public/sitemap.xml
