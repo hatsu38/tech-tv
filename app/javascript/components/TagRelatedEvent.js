@@ -26,7 +26,7 @@ export default class TagRelatedEvent extends Component {
               className="f4 section-title-main-text"
               onClick={this.toTagDetailPage}
             >#{tag.name}</h2>
-            <p className="more">
+            <p className="link--text">
               <a onClick={this.toTagDetailPage}>
                 もっと見る
               </a>

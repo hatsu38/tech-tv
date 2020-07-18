@@ -16,7 +16,7 @@ export default class PageTitle extends Component {
     const { eventCount, title } = this.props
     return (
       <>
-        <Card className="text-center border-none">
+        <Card className="text-center border-none gray--800">
           <Card.Body>
             <Card.Title className="f3 mb-10">{title}</Card.Title>
             <div className="eventCount">

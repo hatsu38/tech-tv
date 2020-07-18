@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Badge } from 'react-bootstrap';
+import '../stylesheets/components/tag'
 
 const propTypes = {
   tags: PropTypes.array
@@ -23,8 +24,7 @@ export default class Tags extends Component {
           <Badge
             key={tag.id}
             pill
-            className="mr-1 bg--darken_1"
-            style={{color: 'white'}}
+            className="mr-1 bg-gray--600 white-text tag-padding"
             onClick={this.toTagDetailPage.bind(this, tag.id)}
           >{tag.name}</Badge>
         )}
