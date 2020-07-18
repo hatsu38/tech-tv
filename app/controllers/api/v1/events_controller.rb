@@ -3,6 +3,7 @@ class Api::V1::EventsController <ApplicationController
 
   def index
     @events = event_search_range(params)
+              .published
               .includes(:tags)
               .select_columns
               .popular
@@ -11,8 +12,8 @@ class Api::V1::EventsController <ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
-    @movies = @event.movies
+    @event = Event.published.find(params[:id])
+    @movies = @event.movies.published
     @tags = @event.tags
   end
 

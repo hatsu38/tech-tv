@@ -59,4 +59,13 @@ class Event < ApplicationRecord
 
   scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
   scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
+  scope :published, -> { where(deleted_at: nil)}
+
+  def logical_delete
+    self.update(deleted_at: Time.zone.now)
+  end
+
+  def restore
+    self.update(deleted_at: nil)
+  end
 end
