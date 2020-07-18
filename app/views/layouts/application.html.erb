@@ -55,7 +55,9 @@
 
   <body>
     <%= react_component('Header') %>
-    <%= yield %>
+    <div class="container paddingless">
+      <%= yield %>
+    </div>
     <%= react_component('Footer') %>
   </body>
 </html>
