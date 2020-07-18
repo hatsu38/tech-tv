@@ -40,7 +40,7 @@ export default class EventDetail extends Component {
             </Card.Text>
             <Card.Text className="text--light">
               <a href={event.connpass_event_url} target="_blank">
-                <FontAwesomeIcon icon={faExternalLinkAlt} className="icon--margin darken_1" />
+                <FontAwesomeIcon icon={faExternalLinkAlt} className="icon--margin base_color" />
               </a>
               <a href={event.connpass_event_url} target="_blank">
                 元のイベントページへ

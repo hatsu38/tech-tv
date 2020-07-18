@@ -11,13 +11,12 @@ export default class TagRelatedEvents extends Component {
     super(props);
   }
 
-
   render() {
     const { tags } = this.props
     return (
       <>
         {tags &&
-          tags.map((tag) =>
+          tags.map((tag, index) =>
             <TagRelatedEvent key={tag.id} tag={tag} />
           )
         }

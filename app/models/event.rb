@@ -47,10 +47,10 @@ class Event < ApplicationRecord
   validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
   validates :connpass_updated_at, presence: true
 
-  scope :recent, -> { where(started_at: [(Date.today - 2.weeks)..Date.today]) }
-  scope :monthly, -> { where(started_at: [(Date.today - 1.month)..Date.today]) }
+  scope :recent, -> { where(started_at: [( Time.zone.today.beginning_of_day - 2.weeks)..Time.zone.today.end_of_day]) }
+  scope :monthly, -> { where(started_at: [( Time.zone.today.beginning_of_day - 1.month)..Time.zone.today.end_of_day]) }
   scope :popular, -> { order(applicant: :desc)}
-  scope :newly, -> { where(created_at: [(Date.today - 3.days)..Date.today]) }
+  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 3.days)..Time.zone.today.end_of_day]) }
   scope :serch_by_keyword, -> (serch) do
     where('title LIKE ?', "%#{serch}%")
     .or(where('catch LIKE ?', "%#{serch}%"))

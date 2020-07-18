@@ -42,7 +42,7 @@ export default class HoldingDateTime extends Component {
   render() {
     return (
       <>
-        <FontAwesomeIcon icon={faCalendarAlt} className="icon--margin darken_1" />
+        <FontAwesomeIcon icon={faCalendarAlt} className="icon--margin gray--700" />
         { this.holdingTime(this.props.startDateTime, this.props.endDateTime) }
       </>
     )

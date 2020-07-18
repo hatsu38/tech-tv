@@ -22,7 +22,7 @@ export default class ApplicationAndCapacityCount extends Component {
     const applicantColor = this.isCapacityCountOver(event) ? 'text--color-red' : null
     return(
       <>
-        <FontAwesomeIcon icon={faUsers} className="icon--margin darken_1" />
+        <FontAwesomeIcon icon={faUsers} className="icon--margin gray--700" />
         <span className={applicantColor}>{event.applicant}人</span>
         { 0 < event.limit && <span>/定員:{event.limit}人</span> }
       </>

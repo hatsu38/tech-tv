@@ -1,6 +1,11 @@
+$xs: 0.25rem;
 $sm: 0.5rem;
 $md: 1.5rem;
 $lg: 2.5rem;
+
+.padding-xs {
+  padding: $xs;
+}
 
 .padding-sm {
   padding: $sm;

@@ -10,4 +10,5 @@
   "こんぱすちゅ〜ぶ（#{@tag.name}）タグの勉強会一覧です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
 %>
 <%= react_component('TagDetail', {tag: @tag, events: @events, totalCount: @total_count}) %>
+<%= react_component('NewlyEvents') %>
 <%= react_component('PopularTagRelatedEvents') %>

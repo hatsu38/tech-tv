@@ -6,8 +6,8 @@ export default class Header extends Component {
   render() {
     return (
       <>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/" className="bland-title">
+        <Navbar className="bg-gray--600">
+          <Navbar.Brand href="/" className="bland-title white-text">
             こんぱすちゅ〜ぶ
           </Navbar.Brand>
         </Navbar>
