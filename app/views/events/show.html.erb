@@ -1,14 +1,14 @@
 
-<% content_for :title, "#{@event.title}の勉強会 | こんぱすちゅ〜ぶ" %>
+<% content_for :title, "#{@event.title}の勉強会一覧 | こんぱすちゅ〜ぶ" %>
 <%
   content_for :meta_description,
-  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
+  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
 <% content_for :meta_keywords, "#{@event.title}" %>
 <% content_for :og_title, "#{@event.title}の勉強会 | こんぱすちゅ〜ぶ" %>
 <%
   content_for :og_description,
-  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
+  "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
 <%= react_component('YouTube', {movies: @movies}) %>
 <%= react_component('EventDetail', {event: @event, tags: @tags}) %>

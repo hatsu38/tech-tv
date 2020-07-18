@@ -1,13 +1,13 @@
 <% content_for :title, "#{@tag.name}タグの勉強会一覧 | こんぱすちゅ〜ぶ" %>
 <%
   content_for :meta_description,
-  "こんぱすちゅ〜ぶ（#{@tag.name}）一覧です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
+  "こんぱすちゅ〜ぶ（#{@tag.name}）一覧です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
 <% content_for :meta_keywords, "#{@tag.name}" %>
 <% content_for :og_title, "こんぱすちゅ〜ぶ（#{@tag.name}タグの勉強会一覧" %>
 <%
   content_for :og_description,
-  "こんぱすちゅ〜ぶ（#{@tag.name}）タグの勉強会一覧です。こんぱすちゅ〜ぶでは、勉強会のイベントを紹介しています。"
+  "こんぱすちゅ〜ぶ（#{@tag.name}）タグの勉強会一覧です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
 <%= react_component('TagDetail', {tag: @tag, events: @events, totalCount: @total_count}) %>
 <%= react_component('NewlyEvents') %>
