@@ -46,6 +46,12 @@ bundle exec rails batch:save_event_tag_diff_days[1]
 $ heroku run rails batch:save_event_tag_diff_days[1]
 ```
 
+bundle exec rails -s sitemap:refresh
+- sitemapの作成してサーチエンジンにsitemapを更新したことを通知
+```
+$ heroku run rails -s sitemap:refresh
+```
+
 ## DB接続情報を確認
 ```
 $ heroku pg:credentials:url --app connpass-tube-api
