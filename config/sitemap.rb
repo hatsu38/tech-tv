@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://connpass-tube.herokuapp.com/"
+SitemapGenerator::Sitemap.default_host = "https://connpass-tube.hatsu38.com/"
 
 SitemapGenerator::Sitemap.create do
   add root_path

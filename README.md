@@ -1,9 +1,9 @@
 # YouTube Liveの勉強会 API
-- WebSite(仮)：https://connpass-tube-api.herokuapp.com/
+- WebSite(仮)：https://connpass-tube.hatsu38.com/
 
 ## デプロイ方法
-- サーバー：heroklu
-- Herokuアプリ： https://dashboard.heroku.com/apps/connpass-tube-api
+- サーバー：heroku
+- Herokuアプリ： https://dashboard.heroku.com/apps/connpass-tube
 ```
 $ heroku login
 $ git push heroku master
@@ -68,5 +68,5 @@ heroku run rails db:migrate
 ```
 
 ## Heroku Scheduler(バッチ)
-- https://dashboard.heroku.com/apps/connpass-tube-api/scheduler
+- https://dashboard.heroku.com/apps/connpass-tube/scheduler
 
