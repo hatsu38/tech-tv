@@ -5,7 +5,7 @@ ActiveAdmin.register Event do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :title, :catch, :description, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :event_type, :address, :place, :lat, :lon, :accepted, :waiting, :applicant, :connpass_event_id, :connpass_updated_at
+  permit_params :title, :catch, :description, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :event_type, :address, :place, :lat, :lon, :accepted, :waiting, :applicant, :connpass_event_id, :connpass_updated_at, :deleted_at
   #
   # or
   #
@@ -14,5 +14,5 @@ ActiveAdmin.register Event do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
 end

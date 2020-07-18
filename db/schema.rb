@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_072044) do
+ActiveRecord::Schema.define(version: 2020_07_18_081752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_072044) do
     t.datetime "connpass_updated_at", null: false, comment: "connpass.com 上のイベント更新日時 (ISO-8601形式)"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at", comment: "削除日時"
     t.index ["connpass_event_id"], name: "index_events_on_connpass_event_id", unique: true
   end
 
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_072044) do
     t.string "url", default: "", null: false, comment: "動画のURL"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at", comment: "削除日時"
     t.index ["url"], name: "index_movies_on_url", unique: true
   end
 

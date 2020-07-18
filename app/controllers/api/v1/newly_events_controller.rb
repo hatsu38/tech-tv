@@ -2,7 +2,8 @@ class Api::V1::NewlyEventsController <ApplicationController
   ITEMS_PER_PAGE = 10
 
   def index
-    events = Event.newly
+    events = Event.published
+                  .newly
                   .order(id: :desc)
                   .includes(:tags)
                   .select_columns
