@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       #{e&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
-    render 'errors/404', status: 404
+    render 'errors/404.html.erb', status: 404
   end
 
   def rescue_500(e = nil)
@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
       #{e&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
-    render 'errors/500', status: 500
+    render 'errors/500.html.erb', status: 500
   end
 end
