@@ -11,7 +11,18 @@ const propTypes = {
 
 export default class EventSnsShare extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      copied: false
+    }
+  }
+
+  copyClick = () => {
+    this.setState({copied: true})
+    setTimeout(
+      () => this.setState({copied: false}),
+      2000
+    );
   }
 
   render() {
@@ -28,11 +39,12 @@ export default class EventSnsShare extends Component {
           <FacebookShareButton className="margin-sm" url={shareURL} quote={shareTitle}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
-          <CopyToClipboard text={shareURL}>
+          <CopyToClipboard text={shareURL} onCopy={this.copyClick}>
             <div className="link-copy-button--wrapper margin-sm">
               <FontAwesomeIcon icon={faCopy} className="" />
             </div>
           </CopyToClipboard>
+          {this.state.copied ? <span style={{color: 'red', fontWeight: 'bold'}}>URLをコピーしました</span> : null}
         </div>
       </>
     )
