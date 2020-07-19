@@ -12,7 +12,7 @@ export default class TagRelatedEvent extends Component {
   }
 
   toTagDetailPage = () => {
-    window.location = `tags/${this.props.tag.id}`
+    window.location = `/tags/${this.props.tag.id}`
   }
 
   render() {
