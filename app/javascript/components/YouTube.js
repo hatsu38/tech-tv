@@ -30,8 +30,13 @@ export default class YouTube extends Component {
       <>
         <div>
           {movies && movies.map(movie =>
-            <div key={movie.id} className="frame-wrapper__video">
-              <iframe width="640" height="360" src={this.formatEmbedYoutubeURL(movie.url)} />
+            <div key={movie.id}>
+              <div key={movie.id} className="frame-wrapper__video">
+                <iframe width="640" height="360" src={this.formatEmbedYoutubeURL(movie.url)}/>
+              </div>
+              <div className="more text-right">
+                <a href={movie.url} className="link--text" target='_blank'>Youtubeで動画を見る</a>
+              </div>
             </div>
           )}
         </div>

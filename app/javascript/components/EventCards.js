@@ -16,7 +16,7 @@ export default class EventCards extends Component {
 
     return (
       <>
-        {events && events.map((event) => <EventCard event={event} key={event.id} />)}
+        {events && events.map((event, index) => <EventCard event={event} key={`${event.id}/${index}`} />)}
       </>
     )
   }
