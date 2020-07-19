@@ -3,6 +3,7 @@ class EventsController <ApplicationController
 
   def index
     @events = event_search_range(params)
+              .joins(:movies)
               .published
               .includes(:tags)
               .select_columns
@@ -12,7 +13,7 @@ class EventsController <ApplicationController
   end
 
   def show
-    @event = Event.published.find(params[:id])
+    @event = Event.joins(:movies).published.find(params[:id])
     @movies = @event.movies.published
     @tags = @event.tags
   end
