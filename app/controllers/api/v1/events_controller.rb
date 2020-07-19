@@ -1,4 +1,4 @@
-class Api::V1::EventsController <ApplicationController
+class Api::V1::EventsController < Api::V1::BaseController
   ITEMS_PER_PAGE = 10
 
   def index

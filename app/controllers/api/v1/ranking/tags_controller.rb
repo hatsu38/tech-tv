@@ -1,4 +1,4 @@
-class Api::V1::Ranking::TagsController <ApplicationController
+class Api::V1::Ranking::TagsController < Api::V1::BaseController
   DEFAULT_GET_TAGS_NUMS = 10
   DEFAULT_GET_EVENTS_NUMS = 5
 
