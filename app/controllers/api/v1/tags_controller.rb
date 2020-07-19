@@ -1,4 +1,4 @@
-class Api::V1::TagsController <ApplicationController
+class Api::V1::TagsController < Api::V1::BaseController
   ITEMS_PER_PAGE = 10
 
   def index
