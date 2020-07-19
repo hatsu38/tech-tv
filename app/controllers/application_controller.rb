@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_filter :ensure_domain
+  before_action :ensure_domain
 
   FQDN = 'connpass-tube.hatsu38.com'
   # redirect correct server from herokuapp domain for SEO
