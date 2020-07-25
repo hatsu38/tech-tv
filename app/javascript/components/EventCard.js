@@ -15,10 +15,6 @@ export default class EventCard extends Component {
     super(props);
   }
 
-  toEventDetailPage = () => {
-    window.location = `/events/${this.props.event.id}`
-  }
-
   render() {
     const event = this.props.event
     const tags = event.tags
@@ -27,7 +23,9 @@ export default class EventCard extends Component {
     return (
       <Card className="border-top-none">
         <Card.Body>
-          <Card.Title className="cursor gray--800" onClick={this.toEventDetailPage}>{event.title}</Card.Title>
+          <Card.Title className="cursor gray--800">
+            <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
+          </Card.Title>
           <Card.Text className="text--light">
             <HoldingDateTime
               startDateTime={event.started_at}

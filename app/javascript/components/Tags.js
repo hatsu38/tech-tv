@@ -12,21 +12,16 @@ export default class Tags extends Component {
     super(props);
   }
 
-  toTagDetailPage(tagId) {
-    window.location = `/tags/${tagId}`
-  }
-
   render() {
     const tags = this.props.tags
     return (
       <div>
         {tags && tags.map((tag) =>
-          <Badge
-            key={tag.id}
-            pill
-            className="mr-1 bg-gray--600 white-text tag-padding"
-            onClick={this.toTagDetailPage.bind(this, tag.id)}
-          >{tag.name}</Badge>
+          <Badge key={tag.id} pill className="mr-1 bg-gray--600 tag-padding">
+            <a href={'/tags/' + tag.id} className="white-text">
+              {tag.name}
+            </a>
+          </Badge>
         )}
       </div>
     )
