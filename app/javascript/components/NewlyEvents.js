@@ -1,5 +1,5 @@
 import React from "react"
-import EventCards from '../components/EventCards'
+import MiniImageEvents from '../components/MiniImageEvents'
 import PageTitle from '../components/PageTitle'
 import Hr from '../components/Hr'
 import { Button } from "react-bootstrap"
@@ -67,7 +67,7 @@ export default class NewlyEvents extends React.Component {
       <>
         <PageTitle eventCount={totalEventsCount} title="新着イベント" />
         <Hr />
-        {events && <EventCards events={events} />}
+        {events && <MiniImageEvents events={events} />}
         {hasMore &&
           <div className="moreReadButton--wrapper mb-40">
             <Button
