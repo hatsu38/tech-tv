@@ -29,16 +29,16 @@ export default class EventDetail extends Component {
             <Card.Text>
               {event.title}
             </Card.Text>
-            <Card.Text className="text--light">
+            <Card.Text className="text--light mb-5">
               <HoldingDateTime
                 startDateTime={event.started_at}
                 endDateTime={event.ended_at}
               />
             </Card.Text>
-            <Card.Text className="text--light">
+            <Card.Text className="text--light mb-5">
               <ApplicationAndCapacityCount event={event} />
             </Card.Text>
-            <Card.Text className="text--light">
+            <Card.Text className="text--light mb-5">
               <a href={event.connpass_event_url} target="_blank">
                 <FontAwesomeIcon icon={faExternalLinkAlt} className="icon--margin base_color" />
               </a>

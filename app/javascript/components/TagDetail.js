@@ -17,6 +17,7 @@ export default class TagRelatedEvent extends Component {
 
   render() {
     const {tag, events, totalCount} = this.props
+    console.log("=======EVENTS=======", events)
     return (
       <>
         <div className="white--background border-top">

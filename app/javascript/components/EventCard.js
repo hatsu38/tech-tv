@@ -29,13 +29,13 @@ export default class EventCard extends Component {
           <Card.Title className="cursor gray--800">
             <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
           </Card.Title>
-          <Card.Text className="text--light">
+          <Card.Text className="text--light mb-5">
             <HoldingDateTime
               startDateTime={event.started_at}
               endDateTime={event.ended_at}
             />
           </Card.Text>
-          <Card.Text className="text--light">
+          <Card.Text className="text--light mb-5">
             <ApplicationAndCapacityCount event={event} />
           </Card.Text>
           {tags && <Tags tags={tags} />}
