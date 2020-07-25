@@ -27,4 +27,16 @@ class Movie < ApplicationRecord
   def restore
     self.update(deleted_at: nil)
   end
+
+  def youtube_id
+    self.url.gsub(/http.:\/\/youtu.be\//, '')
+  end
+
+  def thumbnail_url
+    "https://img.youtube.com/vi/#{self.youtube_id}/0.jpg"
+  end
+
+  def embed_youtube_url
+    "https://www.youtube.com/embed/#{self.youtube_id}"
+  end
 end

@@ -4,10 +4,7 @@ class TagsController <ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @events = @tag.events
-                  .joins(:movies)
-                  .includes(:tags)
-                  .select_columns
-                  .popular
+                  .published_popular_select_tags_with_movies_tags
                   .page(params[:page])
                   .per(ITEMS_PER_PAGE)
     @total_count = @events.total_count

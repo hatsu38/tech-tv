@@ -6,6 +6,8 @@ import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 import Tags from '../components/Tags'
 
+import '../stylesheets/components/event_card'
+
 const propTypes = {
   event: PropTypes.object.isRequired,
 }
@@ -18,21 +20,24 @@ export default class EventCard extends Component {
   render() {
     const event = this.props.event
     const tags = event.tags
+    const movies = event.movies
+    const movie = movies ? movies[0] : ""
     if(!event) {return null}
 
     return (
-      <Card className="border-top-none">
+      <Card className="border-top-none mb-40">
+        { movie && <Card.Img variant="top" src={movie} className="card--media" /> }
         <Card.Body>
           <Card.Title className="cursor gray--800">
             <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
           </Card.Title>
-          <Card.Text className="text--light">
+          <Card.Text className="text--light mb-5">
             <HoldingDateTime
               startDateTime={event.started_at}
               endDateTime={event.ended_at}
             />
           </Card.Text>
-          <Card.Text className="text--light">
+          <Card.Text className="text--light mb-5">
             <ApplicationAndCapacityCount event={event} />
           </Card.Text>
           {tags && <Tags tags={tags} />}

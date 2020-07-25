@@ -3,11 +3,7 @@ class Api::V1::EventsController < Api::V1::BaseController
 
   def index
     @events = event_search_range(params)
-              .joins(:movies)
-              .published
-              .includes(:tags)
-              .select_columns
-              .popular
+              .published_popular_select_tags_with_movies_tags
               .page(params[:page])
               .per(ITEMS_PER_PAGE)
   end
