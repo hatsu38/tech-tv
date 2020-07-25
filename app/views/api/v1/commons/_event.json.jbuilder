@@ -1,0 +1,13 @@
+json.id event.id
+json.title event.title
+json.catch event.catch
+json.connpass_event_url event.connpass_event_url
+json.hash_tag event.hash_tag
+json.started_at event.started_at
+json.ended_at event.ended_at
+json.limit event.limit
+json.accepted event.accepted
+json.waiting event.waiting
+json.applicant event.applicant
+json.tags event.tags
+json.movies event.movies.map(&:thumbnail_url)

@@ -8,6 +8,6 @@ class Api::V1::TagsController < Api::V1::BaseController
 
   def show
     tag = Tag.find(params[:id])
-    render json: { tag: tag, events: tag.events.select_columns }
+    render json: { tag: tag, events: tag.events.published_popular_select_tags_with_movies_tags }
   end
 end

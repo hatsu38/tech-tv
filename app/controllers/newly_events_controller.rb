@@ -4,9 +4,7 @@ class NewlyEventsController <ApplicationController
   def index
     @events = Event.published
                   .newly
-                  .includes(:tags)
-                  .select_columns
-                  .popular
+                  .published_popular_select_tags_with_movies_tags
                   .page(params[:page])
                   .per(ITEMS_PER_PAGE)
   end

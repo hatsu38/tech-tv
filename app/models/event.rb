@@ -61,11 +61,17 @@ class Event < ApplicationRecord
   scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
   scope :published, -> { where(deleted_at: nil)}
 
+  DEFAULT_GET_EVENTS_NUMS = 10
+
   def logical_delete
     self.update(deleted_at: Time.zone.now)
   end
 
   def restore
     self.update(deleted_at: nil)
+  end
+
+  def self.published_popular_select_tags_with_movies_tags
+    joins(:movies).preload(:tags, :movies).published.select_columns.popular
   end
 end

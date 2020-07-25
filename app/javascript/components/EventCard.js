@@ -18,10 +18,13 @@ export default class EventCard extends Component {
   render() {
     const event = this.props.event
     const tags = event.tags
+    const movies = event.movies
+    const movie = movies ? movies[0] : ""
     if(!event) {return null}
 
     return (
-      <Card className="border-top-none">
+      <Card className="border-top-none mb-40">
+        { movie && <Card.Img variant="top" src={movie} /> }
         <Card.Body>
           <Card.Title className="cursor gray--800">
             <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
