@@ -6,6 +6,8 @@ import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 import Tags from '../components/Tags'
 
+import '../stylesheets/components/event_card'
+
 const propTypes = {
   event: PropTypes.object.isRequired,
 }
@@ -24,7 +26,7 @@ export default class EventCard extends Component {
 
     return (
       <Card className="border-top-none mb-40">
-        { movie && <Card.Img variant="top" src={movie} /> }
+        { movie && <Card.Img variant="top" src={movie} className="card--media" /> }
         <Card.Body>
           <Card.Title className="cursor gray--800">
             <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
