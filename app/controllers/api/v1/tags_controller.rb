@@ -7,7 +7,8 @@ class Api::V1::TagsController < Api::V1::BaseController
   end
 
   def show
-    tag = Tag.find(params[:id])
-    render json: { tag: tag, events: tag.events.published_popular_select_tags_with_movies_tags }
+    @tag = Tag.find(params[:id])
+    @events = @tag.events.published_popular_select_tags_with_movies_tags.page(params[:page]).per(ITEMS_PER_PAGE)
+    @total_count = @events.total_count
   end
 end
