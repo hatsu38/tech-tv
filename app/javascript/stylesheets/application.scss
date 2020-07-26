@@ -28,7 +28,7 @@ body{
 
 .text--light{
   color: grey;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .event--description{
@@ -82,4 +82,17 @@ body{
 }
 .position-absolute{
   position: absolute;
+}
+
+.moreReadButton--wrapper {
+  width: 33%;
+  text-align: center;
+  margin: 1rem auto;
+  button{
+    background-color: #fff !important;
+    color: #333333 !important;
+  }
+  @include media_query_mobile{
+    width: 80%;
+  }
 }

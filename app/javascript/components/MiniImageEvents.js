@@ -24,8 +24,8 @@ export default class MiniImageEvents extends Component {
     return (
       <ul className="list-unstyled bg--white">
         {events.map((event, index) => (
-          <div>
-            <Media as="li" key={`${event.id}/${index}`} className="pt-15 pb-15 pr-5 pl-5">
+          <div className="media--wrapper">
+            <Media as="li" key={`${event.id}-${index}`} className="pt-15 pb-15 pr-5 pl-5">
               <img
                 className="mr-3 responsive--media"
                 src={event.movies[0]}
@@ -41,7 +41,7 @@ export default class MiniImageEvents extends Component {
                     endDateTime={event.ended_at}
                   />
                 </div>
-                <div className="text--light mb-10">
+                <div className="text--light mb-5">
                   <ApplicationAndCapacityCount event={event} />
                 </div>
                 {event.tags && <Tags tags={event.tags} />}

@@ -90,24 +90,21 @@ export default class PopularEvents extends React.Component {
     return (
       <React.Fragment>
         <Container>
-        <div className="" style={{paddingBottom: "24px"}}>
-          <span className="event-list-title gray--900">人気のイベント動画</span>
-          <span> {totalEventsCount}件</span>
-        </div>
-        {events && <EventCards events={events} />}
-        {hasMore &&
-          <div className="moreReadButton--wrapper mb-40">
-            <Button
-              block
-              variant="outline-secondary"
-              className="padding-sm more-read-button"
-              disabled={isLoading}
-              onClick={isLoading ? null : this.fetchEvents}
-            >
-              {isLoading ? '読み込み中…' : 'もっと見る'}
-            </Button>
-          </div>
-        }
+          <PageTitle title="人気のイベント動画" eventCount={totalEventsCount} />
+          {events && <EventCards events={events} />}
+          {hasMore &&
+            <div className="moreReadButton--wrapper mb-40">
+              <Button
+                block
+                variant="outline-secondary"
+                className="padding-sm more-read-button"
+                disabled={isLoading}
+                onClick={isLoading ? null : this.fetchEvents}
+              >
+                {isLoading ? '読み込み中…' : 'もっと見る'}
+              </Button>
+            </div>
+          }
         </Container>
       </React.Fragment>
     );

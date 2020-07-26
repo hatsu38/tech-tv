@@ -23,6 +23,9 @@
     font-size: 1rem;
     color: $base-gray-800;
   }
+  img{
+    max-width: 100%;
+  }
 }
 
 .bg-color{
@@ -36,4 +39,12 @@
   @include media_query_tablet{
     display: inline-block;
   }
+}
+
+.more-none {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 0,#fff 78%);
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 0;
 }

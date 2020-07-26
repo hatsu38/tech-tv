@@ -7,19 +7,6 @@
   }
 }
 
-.moreReadButton--wrapper {
-  width: 33%;
-  text-align: center;
-  margin: 1rem auto;
-  button{
-    background-color: #fff !important;
-    color: #333333 !important;
-  }
-  @include media_query_mobile{
-    width: 80%;
-  }
-}
-
 .top--background{
   background-color: #f9f9f9;
 }

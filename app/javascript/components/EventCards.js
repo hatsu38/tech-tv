@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import EventCard from '../components/EventCard'
 
-import { Container, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 const propTypes = {
   events: PropTypes.array
@@ -17,7 +17,7 @@ export default class EventCards extends Component {
     const events = this.props.events
 
     return (
-      <Row>
+      <Row noGutters>
         {events && events.map((event, index) => <EventCard event={event} key={`${event.id}/${index}`} />)}
       </Row>
     )
