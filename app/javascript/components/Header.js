@@ -6,7 +6,7 @@ export default class Header extends Component {
   render() {
     return (
       <>
-        <Navbar className="bg-gray--600">
+        <Navbar className="base_bg_color">
           <Navbar.Brand href="/" className="bland-title white-text">
             こんぱすちゅ〜ぶ
           </Navbar.Brand>
