@@ -11,7 +11,7 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <Jumbotron fluid className="marginless about--wrapper">
+        <Jumbotron fluid className="bg--white about--wrapper marginless">
           <Container>
             <h2 className="f4 font-bold base_color about--title ">
               見逃したIT勉強会の動画を<br className="br--mobile-none"/>見つけよう
