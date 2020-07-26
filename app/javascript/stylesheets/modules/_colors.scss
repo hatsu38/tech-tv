@@ -12,6 +12,16 @@ $base-gray-200: #bcccdc;
 $base-gray-100: #d9e2ec;
 $base-gray-000: #f0f4f8;
 
+$accent:#d1410c;
+
+.accent-text {
+	color: $accent;
+}
+
+.bg--accent {
+	background-color: $accent;
+}
+
 .white-text {
 	color: #ffffff !important;
 }
@@ -22,7 +32,6 @@ $base-gray-000: #f0f4f8;
 .link--text{
 	color: $link;
 }
-
 
 .base_color {
 	color: $ref !important;

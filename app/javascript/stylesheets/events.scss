@@ -1,3 +1,5 @@
+@import "../stylesheets/modules/mixin";
+
 .eventCount {
   font-size: 12px;
   strong {
@@ -6,12 +8,15 @@
 }
 
 .moreReadButton--wrapper {
-  width: 80%;
+  width: 33%;
   text-align: center;
   margin: 1rem auto;
   button{
     background-color: #fff !important;
     color: #333333 !important;
+  }
+  @include media_query_mobile{
+    width: 80%;
   }
 }
 

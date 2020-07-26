@@ -1,0 +1,19 @@
+@import "../modules/mixin";
+
+.responsive--media {
+  width: 60px;
+  @include media_query_mobile{
+    width: 100px;
+  }
+  @include media_query_tablet{
+    width: 220px;
+    height: 120px;
+  }
+}
+
+.event--title{
+  font-size: 1rem;
+  @include media_query_tablet{
+    font-size: 1.25rem;
+  }
+}

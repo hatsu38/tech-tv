@@ -4,7 +4,7 @@ import { Card, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
-import HoldingDateTime from '../components/HoldingDateTime'
+import HoldingDateTimeWithIcon from '../components/HoldingDateTimeWithIcon'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
 import EventSnsShare from '../components/EventSnsShare'
 import Tags from '../components/Tags'
@@ -30,7 +30,7 @@ export default class EventDetail extends Component {
               {event.title}
             </Card.Text>
             <Card.Text className="text--light mb-5">
-              <HoldingDateTime
+              <HoldingDateTimeWithIcon
                 startDateTime={event.started_at}
                 endDateTime={event.ended_at}
               />

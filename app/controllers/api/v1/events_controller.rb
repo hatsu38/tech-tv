@@ -5,7 +5,7 @@ class Api::V1::EventsController < Api::V1::BaseController
     @events = event_search_range(params)
               .published_popular_select_tags_with_movies_tags
               .page(params[:page])
-              .per(ITEMS_PER_PAGE)
+              .per(params[:per] || ITEMS_PER_PAGE)
   end
 
   def show

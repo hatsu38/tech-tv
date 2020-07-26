@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import moment from 'moment';
 moment.locale("ja");
 
@@ -42,7 +40,6 @@ export default class HoldingDateTime extends Component {
   render() {
     return (
       <>
-        <FontAwesomeIcon icon={faCalendarAlt} className="icon--margin gray--700" />
         { this.holdingTime(this.props.startDateTime, this.props.endDateTime) }
       </>
     )

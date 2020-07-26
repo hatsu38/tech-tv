@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 
 import HoldingDateTime from '../components/HoldingDateTime'
 import ApplicationAndCapacityCount from '../components/ApplicationAndCapacityCount'
@@ -25,24 +25,26 @@ export default class EventCard extends Component {
     if(!event) {return null}
 
     return (
-      <Card className="border-top-none mb-40">
-        { movie && <Card.Img variant="top" src={movie} className="card--media" /> }
-        <Card.Body>
-          <Card.Title className="cursor gray--800">
-            <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
-          </Card.Title>
-          <Card.Text className="text--light mb-5">
-            <HoldingDateTime
-              startDateTime={event.started_at}
-              endDateTime={event.ended_at}
-            />
-          </Card.Text>
-          <Card.Text className="text--light mb-5">
-            <ApplicationAndCapacityCount event={event} />
-          </Card.Text>
-          {tags && <Tags tags={tags} />}
-        </Card.Body>
-      </Card>
+      <Col xs={12} sm={6} md={4} lg={3} className="padding-xs bg--white mb-5">
+        <Card className="border-top-none h-100">
+          { movie && <Card.Img variant="top" src={movie} className="card--media" /> }
+          <Card.Body className="">
+            <Card.Text className="accent-text accent-datetime mb-5">
+              <HoldingDateTime
+                startDateTime={event.started_at}
+                endDateTime={event.ended_at}
+              />
+            </Card.Text>
+            <Card.Title className="gray--800 event-card-title three-point-reader--three">
+              <a href={'/events/' + event.id} className="gray--800">{event.title}</a>
+            </Card.Title>
+            <Card.Text className="text--light mb-5">
+              <ApplicationAndCapacityCount event={event} />
+            </Card.Text>
+            {tags && <Tags tags={tags} />}
+          </Card.Body>
+        </Card>
+      </Col>
     )
   }
 }
