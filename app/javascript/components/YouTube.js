@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import '../stylesheets/components/youtube'
 
 const propTypes = {
@@ -35,7 +36,7 @@ export default class YouTube extends Component {
                 <iframe width="640" height="360" src={this.formatEmbedYoutubeURL(movie.url)}/>
               </div>
               <div className="more text-right">
-                <a href={movie.url} className="link--text" target='_blank'>Youtubeで動画を見る</a>
+                <a href={movie.url} className="link--text youtube-link" target='_blank'>Youtubeで動画を見る</a>
               </div>
             </div>
           )}

@@ -1,0 +1,39 @@
+@import "../modules/colors";
+@import "../modules/mixin";
+
+.event-title{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 21px;
+}
+.event-info-wrapper{
+  margin-top: 0;
+  @include media_query_tablet{
+    margin-top: 40px;
+  }
+}
+.event--description {
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+  h1{
+    font-size: 1.2rem;
+    color: $base-gray-800;
+  }
+  h2,h3,h4,h5,h6{
+    font-size: 1rem;
+    color: $base-gray-800;
+  }
+}
+
+.bg-color{
+  height: 60vh;
+  filter: blur(25px);
+  width: 100vw;
+  top: 80px;
+  left: 0;
+  right: 0;
+  display: none;
+  @include media_query_tablet{
+    display: inline-block;
+  }
+}

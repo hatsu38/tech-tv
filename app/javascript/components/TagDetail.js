@@ -26,7 +26,7 @@ export default class TagDetail extends Component {
 
   async fetchTags() {
     console.log("this.props.params.route", this.props.tag.id)
-    const api = `${REQUEST_API_BASE_URL}/${this.props.tag.id}`
+    const api = `${REQUEST_API_BASE_URL}/${this.props.tag.id}?per=8`
     const apiResponse = await axios.get(api).catch(null)
     console.log("apiResponse", apiResponse)
     if(!apiResponse || !apiResponse.data || apiResponse.data.status === 500) { return true }
