@@ -17,7 +17,7 @@ export default class Tags extends Component {
     return (
       <div>
         {tags && tags.map((tag) =>
-          <Badge key={tag.id} pill className="mr-1 bg-gray--600 tag-padding">
+          <Badge key={tag.id} pill className="mr-1 base_bg_color tag-padding">
             <a href={'/tags/' + tag.id} className="white-text">
               {tag.name}
             </a>

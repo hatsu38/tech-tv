@@ -11,6 +11,7 @@ class EventsController <ApplicationController
   def show
     @event = Event.joins(:movies).published.find(params[:id])
     @movies = @event.movies.published
+    @thumbnail = @movies.first.thumbnail_url
     @tags = @event.tags
   end
 

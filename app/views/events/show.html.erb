@@ -10,8 +10,7 @@
   content_for :og_description,
   "「#{@event.title}」の勉強会詳細です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
-<%= react_component('YouTube', {movies: @movies}) %>
-<%= react_component('EventDetail', {event: @event, tags: @tags}) %>
+<%= react_component('EventDetail', {event: @event, tags: @tags, movies: @movies, thumbnail: @thumbnail}) %>
 <% if @tags.present? %>
   <%= react_component('EventDetailTagRelatedEvents', {event: @event }) %>
   <%= react_component('NewlyEvents') %>

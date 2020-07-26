@@ -3,7 +3,6 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 import EventCards from '../components/EventCards'
 import PageTitle from '../components/PageTitle'
-import Hr from '../components/Hr'
 
 const REQUEST_API_BASE_URL = "/api/v1/tags/"
 
@@ -26,7 +25,7 @@ export default class TagDetail extends Component {
 
   async fetchTags() {
     console.log("this.props.params.route", this.props.tag.id)
-    const api = `${REQUEST_API_BASE_URL}/${this.props.tag.id}`
+    const api = `${REQUEST_API_BASE_URL}/${this.props.tag.id}?per=8`
     const apiResponse = await axios.get(api).catch(null)
     console.log("apiResponse", apiResponse)
     if(!apiResponse || !apiResponse.data || apiResponse.data.status === 500) { return true }
@@ -43,15 +42,12 @@ export default class TagDetail extends Component {
   render() {
     const {tag} = this.props
     const {events, totalCount} = this.state
-    console.log("=======EVENTS=======", events)
+
     return (
-      <>
-        <div className="white--background border-top">
-          <PageTitle eventCount={totalCount} title={tag.name} />
-          <Hr />
-          {events && <EventCards events={events} />}
-        </div>
-      </>
+      <div className="white--background border-top">
+        <PageTitle eventCount={totalCount} title={tag.name} />
+        {events && <EventCards events={events} />}
+      </div>
     )
   }
 }

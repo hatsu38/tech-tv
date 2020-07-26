@@ -1,0 +1,25 @@
+@import "../modules/mixin";
+
+.responsive--media {
+  width: 60px;
+  @include media_query_mobile{
+    width: 100px;
+  }
+  @include media_query_tablet{
+    width: 220px;
+    height: 120px;
+  }
+}
+
+.event--title{
+  font-size: 1rem;
+  @include media_query_tablet{
+    font-size: 1.25rem;
+  }
+}
+
+.media--wrapper {
+  &:hover{
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+  }
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MiniImageEvents from '../components/MiniImageEvents'
 
+import "../stylesheets/components/tags_related_event"
+
 const propTypes = {
   tag: PropTypes.object.isRequired
 }
@@ -17,7 +19,7 @@ export default class TagRelatedEvent extends Component {
     return (
       <>
         <div className="border-top white--background ">
-          <div className="mb-5 pt-20 pb-20 pl-20 pr-20 border-bottom display-flex">
+          <div className="mb-5 pt-20 pb-20 pl-20 pr-20 display-flex">
             <h2 className="f4 section-title-main-text marginless">
               <a href={'/tags/' + tag.id} className="gray--800">#{tag.name}</a>
             </h2>

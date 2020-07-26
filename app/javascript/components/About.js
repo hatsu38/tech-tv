@@ -11,11 +11,13 @@ export default class About extends Component {
   render() {
     return (
       <>
-        <Jumbotron fluid className="bg--white">
+        <Jumbotron fluid className="bg--white about--wrapper marginless">
           <Container>
-            <h2 className="f4 font-bold gray--900 about--title ">見逃したIT勉強会の動画を<br />見つけよう</h2>
-            <p className="gray--400">
-              <strong>こんぱすちゅ〜ぶ</strong>は、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。
+            <h2 className="f4 font-bold base_color about--title ">
+              見逃したIT勉強会の動画を<br className="br--mobile-none"/>見つけよう
+            </h2>
+            <p className="gray--800">
+              <strong>こんぱすちゅ〜ぶ</strong>は、過去に行われたIT勉強会のYouTubeを紹介しているサイトです。
               <br />
               参加できなかった勉強会や、気になる勉強会探しにご利用ください。
             </p>

@@ -2,3 +2,20 @@
   max-width: 400px;
   margin: 0 auto;
 }
+
+.event-card-title {
+  letter-spacing: 0.25px;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.accent-datetime{
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.shadow-card{
+  &:hover {
+    box-shadow: 0 16px 64px -16px rgba(46,55,77,.24);
+  }
+}
