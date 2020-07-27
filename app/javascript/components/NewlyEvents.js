@@ -30,7 +30,7 @@ export default class NewlyEvents extends React.Component {
   async fetchEvents() {
     this.setState({isLoading: true})
     const { events, page } = this.state
-    const api = `${REQUEST_API_BASE_URL}?&page=${page}`
+    const api = `${REQUEST_API_BASE_URL}?&page=${page}&per=5`
     const apiResponse = await axios.get(api).catch(null)
 
     if(!apiResponse || !apiResponse.data || apiResponse.data.status === 500) {
