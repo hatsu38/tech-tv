@@ -6,7 +6,7 @@ class Api::V1::NewlyEventsController < Api::V1::BaseController
                   .newly
                   .order(id: :desc)
                   .page(params[:page])
-                  .per(ITEMS_PER_PAGE)
+                  .per(params[:per] || ITEMS_PER_PAGE)
     render 'api/v1/events/index'
   end
 end
