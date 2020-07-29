@@ -1,1 +1,1 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+Sitemap: https://connpass-tube.hatsu38.com/sitemap
