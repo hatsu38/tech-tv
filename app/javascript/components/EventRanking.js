@@ -1,7 +1,8 @@
 import React from "react"
 import EventCards from '../components/EventCards'
 import PageTitle from '../components/PageTitle'
-import { Nav, Card, Button } from "react-bootstrap"
+import MoreReadButton from '../components/MoreReadButton'
+import { Nav } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/events/"
 
@@ -100,19 +101,7 @@ export default class EventRanking extends React.Component {
           </Nav.Item>
         </Nav>
         {events && <EventCards events={events} />}
-        {hasMore &&
-          <div className="moreReadButton--wrapper mb-40">
-            <Button
-              block
-              variant="outline-secondary"
-              className="padding-sm"
-              disabled={isLoading}
-              onClick={isLoading ? null : this.fetchEvents}
-            >
-              {isLoading ? '読み込み中…' : 'もっと見る'}
-            </Button>
-          </div>
-        }
+        <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetchEvents} />
       </React.Fragment>
     );
   }
