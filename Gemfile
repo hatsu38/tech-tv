@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'order_as_specified' # Whereの順にOrderする
 gem 'aws-sdk' # s3にsitemapを設置
 gem 'sitemap_generator' # Sitemap作成
 gem 'activeadmin' #管理画面

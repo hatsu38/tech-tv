@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :healthcheck, only: [:index]
   resources :events, only: [:index, :show]
   resources :newly_events, only: [:index]
-  resources :tags, only: [:show]
+  resources :tags, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api, { format: 'json' } do
     namespace :v1 do

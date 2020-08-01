@@ -2,8 +2,7 @@ class Api::V1::TagsController < Api::V1::BaseController
   ITEMS_PER_PAGE = 10
 
   def index
-    tags = Tag.all.page(params[:page]).per(params[:per] || ITEMS_PER_PAGE).select(:id, :name).order(:name)
-    render json: { tags: tags }
+    @tags = Tag.related_event_many_order.page(params[:page]).per(params[:per] || ITEMS_PER_PAGE).preload(:events)
   end
 
   def show

@@ -1,0 +1,12 @@
+<% content_for :title, "タグ一覧 | こんぱすちゅ〜ぶ" %>
+<%
+  content_for :meta_description,
+  "こんぱすちゅ〜ぶのタグ一覧です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
+%>
+<% content_for :meta_keywords, "タグ" %>
+<% content_for :og_title, "こんぱすちゅ〜ぶ（タグ一覧)" %>
+<%
+  content_for :og_description,
+  "こんぱすちゅ〜ぶのタグ一覧です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
+%>
+<%= react_component('AllTags') %>

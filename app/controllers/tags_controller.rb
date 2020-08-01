@@ -1,6 +1,8 @@
 class TagsController <ApplicationController
   ITEMS_PER_PAGE = 30
 
+  def index; end
+
   def show
     @tag = Tag.find(params[:id])
     @events = @tag.events

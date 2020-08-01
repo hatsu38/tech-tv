@@ -12,6 +12,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
 SitemapGenerator::Sitemap.create do
   add root_path
   add newly_events_path
+  add tags_path
   Event.find_each do |event|
     add event_path(event), lastmod: event.updated_at
   end

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import "../stylesheets/components/page_title"
 
 const propTypes = {
-  eventCount: PropTypes.number.isRequired,
+  eventCount: PropTypes.number,
   title: PropTypes.string.isRequired,
   link: PropTypes.string
 }
@@ -21,7 +21,7 @@ export default class PageTitle extends Component {
       <>
         <div className="" className="padding-sm mt-10">
           {link ? <a href={link}>{spanTitle}</a> : spanTitle}
-          <span>{eventCount}件</span>
+          {eventCount && <span>{eventCount}件</span>}
         </div>
       </>
     )
