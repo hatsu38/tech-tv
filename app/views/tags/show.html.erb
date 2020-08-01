@@ -10,5 +10,5 @@
   "こんぱすちゅ〜ぶ（#{@tag.name}）タグの勉強会一覧です。こんぱすちゅ〜ぶは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
 <%= react_component('TagDetail', {tag: @tag}) %>
-<%= react_component('NewlyEvents') %>
+<%= react_component('NewlyEvents', { hasInfiniteScroll: false }) %>
 <%= react_component('PopularTagRelatedEvents') %>

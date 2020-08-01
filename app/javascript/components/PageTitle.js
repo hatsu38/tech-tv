@@ -5,7 +5,8 @@ import "../stylesheets/components/page_title"
 
 const propTypes = {
   eventCount: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string
 }
 
 export default class PageTitle extends Component {
@@ -14,11 +15,12 @@ export default class PageTitle extends Component {
   }
 
   render() {
-    const { eventCount, title } = this.props
+    const { eventCount, title, link } = this.props
+    const spanTitle = <span className="event-list-title gray--900 mr-10">{title}</span>
     return (
       <>
         <div className="" className="padding-sm mt-10">
-          <span className="event-list-title gray--900 mr-10">{title}</span>
+          {link ? <a href={link}>{spanTitle}</a> : spanTitle}
           <span>{eventCount}件</span>
         </div>
       </>
