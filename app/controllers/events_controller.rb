@@ -1,11 +1,12 @@
 class EventsController <ApplicationController
   ITEMS_PER_PAGE = 10
-
+  TAGS_COUNT = 20
   def index
     @events = event_search_range(params)
               .published_popular_select_tags_with_movies_tags
               .page(params[:page])
               .per(ITEMS_PER_PAGE)
+    @tags = Tag.related_event_many_order(TAGS_COUNT)
   end
 
   def show

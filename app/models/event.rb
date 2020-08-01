@@ -74,4 +74,5 @@ class Event < ApplicationRecord
   def self.published_popular_select_tags_with_movies_tags
     joins(:movies).preload(:tags, :movies).published.select_columns.popular
   end
+
 end

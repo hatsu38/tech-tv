@@ -11,12 +11,13 @@ class Tag < ApplicationRecord
   has_many :event_tags
   has_many :events, through: :event_tags
 
-  GET_DEFAULT_RELATED_RANKING_TAG_NUMS = 10
+  extend OrderAsSpecified
 
-  def self.related_event_many_order(num = GET_DEFAULT_RELATED_RANKING_TAG_NUMS)
-    # binding.pry
-    # published_popular_select_tags_with_movies_tags
-    ranking_tag_ids = joins( events: :movies).group(:tag_id).count.sort_by{ |_, v| -v }.map(&:first).first(num)
-    where(id: ranking_tag_ids).sort_by {|m| ranking_tag_ids.index(m.id)}
+  def self.related_event_many_order(num = nil)
+    ranking_tag_ids = joins(:events).group(:tag_id).count.sort_by{ |_, v| -v }.map(&:first)
+    tags = where(id: ranking_tag_ids).order_as_specified(id: ranking_tag_ids)
+    return tags if num.nil?
+
+    tags.limit(num)
   end
 end
