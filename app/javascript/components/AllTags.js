@@ -1,6 +1,7 @@
 import React from "react"
 import PageTitle from '../components/PageTitle'
 import Hr from '../components/Hr'
+import MoreReadButton from '../components/MoreReadButton'
 import { Button, ListGroup } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/tags"
@@ -15,7 +16,6 @@ export default class AllTags extends React.Component {
   get initialState() {
     return {
       tags: [],
-      totalTagsCount: 0,
       page: 1,
       hasMore: false,
       isLoading: false
@@ -62,22 +62,8 @@ export default class AllTags extends React.Component {
   }
 
   render() {
-    const { tags, isLoading, hasMore, totalTagsCount } = this.state
+    const { tags, isLoading, hasMore } = this.state
     if(tags.length < 1){ return false }
-
-    const moreReadButton = (
-      <div className="moreReadButton--wrapper mb-40">
-        <Button
-          block
-          variant="outline-secondary"
-          className="padding-sm"
-          disabled={isLoading}
-          onClick={isLoading ? null : this.fetchTags}
-        >
-          {isLoading ? '読み込み中…' : 'もっと見る'}
-        </Button>
-      </div>
-    )
     return (
       <>
         <PageTitle title="タグ一覧" link="/tags" />
@@ -91,7 +77,7 @@ export default class AllTags extends React.Component {
             ))}
           </ListGroup>
         )}
-        {hasMore && moreReadButton}
+        <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetchTags} />
       </>
     )
   }

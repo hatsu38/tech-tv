@@ -3,6 +3,7 @@
 <div class="padding-sm">
   <%= react_component('PageTitle', {eventCount: EventsController::TAGS_COUNT, title: "人気のタグ一覧", link: "/tags"}) %>
   <%= react_component('Tags', {tags: @tags}) %>
+  <%= react_component('PageTransitionButton', {link: "/tags"}) %>
 </div>
 <%= react_component('NewlyEvents', { hasInfiniteScroll: false }) %>
 <%= react_component('PopularTagRelatedEvents') %>

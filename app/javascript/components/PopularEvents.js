@@ -1,6 +1,7 @@
 import React from "react"
 import EventCards from '../components/EventCards'
 import PageTitle from '../components/PageTitle'
+import MoreReadButton from '../components/MoreReadButton'
 import { Container, Button } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/events/"
@@ -92,19 +93,7 @@ export default class PopularEvents extends React.Component {
         <Container>
           <PageTitle title="人気のイベント動画" eventCount={totalEventsCount} />
           {events && <EventCards events={events} />}
-          {hasMore &&
-            <div className="moreReadButton--wrapper mb-40">
-              <Button
-                block
-                variant="outline-secondary"
-                className="padding-sm more-read-button"
-                disabled={isLoading}
-                onClick={isLoading ? null : this.fetchEvents}
-              >
-                {isLoading ? '読み込み中…' : 'もっと見る'}
-              </Button>
-            </div>
-          }
+          <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetchEvents} />
         </Container>
       </React.Fragment>
     );
