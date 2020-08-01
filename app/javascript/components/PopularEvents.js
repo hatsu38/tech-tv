@@ -2,7 +2,7 @@ import React from "react"
 import EventCards from '../components/EventCards'
 import PageTitle from '../components/PageTitle'
 import MoreReadButton from '../components/MoreReadButton'
-import { Container, Button } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/events/"
 
