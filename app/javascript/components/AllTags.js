@@ -2,7 +2,7 @@ import React from "react"
 import PageTitle from '../components/PageTitle'
 import Hr from '../components/Hr'
 import MoreReadButton from '../components/MoreReadButton'
-import { Button, ListGroup } from "react-bootstrap"
+import { ListGroup } from "react-bootstrap"
 import axios from 'axios'
 const REQUEST_API_BASE_URL = "/api/v1/tags"
 
