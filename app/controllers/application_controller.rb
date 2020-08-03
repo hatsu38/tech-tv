@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_404
     rescue_from ActionController::UnknownFormat, with: :rescue_404
     rescue_from ActionView::MissingTemplate, with: :rescue_404
-    rescue_from ActionController::RoutingError, with: :render_404
+    rescue_from ActionController::RoutingError, with: :rescue_404
   end
 
   def rescue_404(e = nil)
