@@ -1,1 +1,1 @@
-Sitemap: https://connpass-tube.hatsu38.com/sitemap
+Sitemap: https://tech-tv.herokuapp.com/sitemap
