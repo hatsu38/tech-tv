@@ -1,1 +1,1 @@
-Sitemap: https://tech-tv.herokuapp.com/sitemap
+Sitemap: https://www.tech-tv.site/sitemap

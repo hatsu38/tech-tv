@@ -28,7 +28,7 @@ export default class EventSnsShare extends Component {
   render() {
     const { event } = this.props
     const shareURL = location.href.replace(location.search, "")
-    const shareTitle = event.title + " | こんぱすちゅ〜ぶ" + "\n\n"
+    const shareTitle = event.title + " | Tech-TV" + "\n\n"
     return (
       <>
         <div className="display-float text-center mt-25">

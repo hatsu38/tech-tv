@@ -1,9 +1,9 @@
 # YouTube Liveの勉強会 API
-- WebSite(仮)：https://connpass-tube.hatsu38.com/
+- WebSite(仮)：https://tech-tv.hatsu38.com/
 
 ## デプロイ方法
 - サーバー：heroku
-- Herokuアプリ： https://dashboard.heroku.com/apps/connpass-tube
+- Herokuアプリ： https://dashboard.heroku.com/apps/tech-tv
 ```
 $ heroku login
 $ git push heroku master
@@ -54,7 +54,7 @@ $ heroku run rails -s sitemap:refresh
 
 ## DB接続情報を確認
 ```
-$ heroku pg:credentials:url --app connpass-tube-api
+$ heroku pg:credentials:url --app tech-tv-api
 ```
 
 ## 環境変数の追加
@@ -68,5 +68,5 @@ heroku run rails db:migrate
 ```
 
 ## Heroku Scheduler(バッチ)
-- https://dashboard.heroku.com/apps/connpass-tube/scheduler
+- https://dashboard.heroku.com/apps/tech-tv/scheduler
 
