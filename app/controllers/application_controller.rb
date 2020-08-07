@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :ensure_domain
 
-  FQDN = 'connpass-tube.hatsu38.com'
+  FQDN = 'www.tech-tv.site'
   # redirect correct server from herokuapp domain for SEO
   def ensure_domain
     return unless /\.herokuapp.com/ =~ request.host

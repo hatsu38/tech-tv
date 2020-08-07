@@ -1,7 +1,7 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://connpass-tube.hatsu38.com/"
+SitemapGenerator::Sitemap.default_host = "https://www.tech-tv.site/"
 SitemapGenerator::Sitemap.sitemaps_host = "https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET_NAME']}"
-SitemapGenerator::Sitemap.ping_search_engines("https://connpass-tube.hatsu38.com/sitemap")
+SitemapGenerator::Sitemap.ping_search_engines("https://www.tech-tv.site/sitemap")
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
   ENV['S3_BUCKET_NAME'],
   aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
