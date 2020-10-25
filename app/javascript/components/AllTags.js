@@ -27,7 +27,6 @@ export default class AllTags extends React.Component {
   }
 
   async fetchTags() {
-    console.log("fetchTags")
     this.setState({isLoading: true})
     const { tags, page } = this.state
     const api = `${REQUEST_API_BASE_URL}?&page=${page}&per=25`
@@ -40,7 +39,6 @@ export default class AllTags extends React.Component {
     }
 
     const data = apiResponse.data
-    console.log("data", data)
     const insertTags = tags.concat(data.tags)
 
     this.setState({tags: insertTags})
