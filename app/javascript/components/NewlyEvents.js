@@ -73,7 +73,7 @@ export default class NewlyEvents extends React.Component {
 
     return (
       <>
-        <PageTitle eventCount={totalEventsCount} title="新着イベント" link="/newly_events" />
+        <PageTitle eventCount={totalEventsCount} title="新着の勉強会イベント動画" link="/newly_events" />
         <Hr />
         {events && <MiniImageEvents events={events} />}
         <MoreReadOrPageTransitionButton

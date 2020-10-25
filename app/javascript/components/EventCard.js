@@ -27,7 +27,9 @@ export default class EventCard extends Component {
     return (
       <Col xs={12} sm={6} md={4} lg={3} className="mb-10">
           <Card className="mr-5 ml-5 border-top-none h-100 shadow-card">
-            { movie && <Card.Img variant="top" src={movie} className="card--media" /> }
+            { movie &&
+              <a href={'/events/' + event.id}><Card.Img variant="top" src={movie} className="card--media" /></a>
+            }
             <Card.Body className="">
               <Card.Text className="accent-text accent-datetime mb-5">
                 <HoldingDateTime

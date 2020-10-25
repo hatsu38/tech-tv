@@ -91,7 +91,7 @@ export default class PopularEvents extends React.Component {
     return (
       <React.Fragment>
         <Container>
-          <PageTitle title="人気のイベント動画" eventCount={totalEventsCount} />
+          <PageTitle title="人気の勉強会イベント動画" eventCount={totalEventsCount} />
           {events && <EventCards events={events} />}
           <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetchEvents} />
         </Container>
