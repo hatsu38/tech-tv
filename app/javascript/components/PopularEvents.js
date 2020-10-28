@@ -88,7 +88,7 @@ export default class PopularEvents extends React.Component {
 
   render() {
     const { events, totalEventsCount } = this.props
-    console.log("events", events)
+
     return (
       <React.Fragment>
         <Container>

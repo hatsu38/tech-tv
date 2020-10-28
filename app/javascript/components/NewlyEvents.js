@@ -47,7 +47,7 @@ export default class NewlyEvents extends React.Component {
   render() {
     const { moreRead, totalEventsCount } = this.props
     const { events } = this.state
-    if(events.length < 1){ return false }
+    if(!events){ return false }
 
     return (
       <>

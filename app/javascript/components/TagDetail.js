@@ -41,7 +41,7 @@ export default class TagDetail extends Component {
   render() {
     const {tag, totalCount} = this.props
     const { events } = this.state
-    console.log(tag)
+
     return (
       <div className="white--background border-top">
         <PageTitle eventCount={totalCount} title={tag.name} />
