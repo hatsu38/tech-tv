@@ -9,6 +9,7 @@
 #  catch(キャッチ)                                                       :text             default(""), not null
 #  connpass_event_url(connpass.com 上のURL)                              :string           default(""), not null
 #  connpass_updated_at(connpass.com 上のイベント更新日時 (ISO-8601形式)) :datetime         not null
+#  deleted_at(削除日時)                                                  :datetime
 #  description(概要)                                                     :text             default(""), not null
 #  ended_at(イベント終了日時 (ISO-8601形式))                             :datetime         not null
 #  event_type(イベント参加Type)                                          :string           default(""), not null

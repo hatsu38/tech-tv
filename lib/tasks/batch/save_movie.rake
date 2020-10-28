@@ -17,6 +17,7 @@ namespace :batch do
         begin
           movie = Movie.find_or_create_by!(url: movie_link)
           EventMovie.find_or_create_by!(event_id: event_id, movie_id: movie.id)
+          Event.find(event_id).update(thumbnail_url: movie.thumbnail_url)
         rescue => exception
           Rails.logger.error(exception.message)
           Raven.capture_exception(exception)

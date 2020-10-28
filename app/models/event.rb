@@ -9,6 +9,7 @@
 #  catch(キャッチ)                                                       :text             default(""), not null
 #  connpass_event_url(connpass.com 上のURL)                              :string           default(""), not null
 #  connpass_updated_at(connpass.com 上のイベント更新日時 (ISO-8601形式)) :datetime         not null
+#  deleted_at(削除日時)                                                  :datetime
 #  description(概要)                                                     :text             default(""), not null
 #  ended_at(イベント終了日時 (ISO-8601形式))                             :datetime         not null
 #  event_type(イベント参加Type)                                          :string           default(""), not null
@@ -18,6 +19,7 @@
 #  lon(開催会場の経度)                                                   :float
 #  place(開催会場)                                                       :string           default(""), not null
 #  started_at(イベント開催日時 (ISO-8601形式))                           :datetime         not null
+#  thumbnail_url                                                         :string           default(""), not null
 #  title(タイトル)                                                       :string           not null
 #  waiting(補欠者数)                                                     :integer          default(0), not null
 #  created_at                                                            :datetime         not null
@@ -50,14 +52,14 @@ class Event < ApplicationRecord
   scope :recent, -> { where(started_at: [( Time.zone.today.beginning_of_day - 2.weeks)..Time.zone.today.end_of_day]) }
   scope :monthly, -> { where(started_at: [( Time.zone.today.beginning_of_day - 1.month)..Time.zone.today.end_of_day]) }
   scope :popular, -> { order(applicant: :desc)}
-  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 3.days)..Time.zone.today.end_of_day]) }
+  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 10.days)..Time.zone.today.end_of_day]) }
   scope :serch_by_keyword, -> (serch) do
     where('title LIKE ?', "%#{serch}%")
     .or(where('catch LIKE ?', "%#{serch}%"))
     .or(where('hash_tag LIKE ?', "%#{serch}%"))
   end
 
-  scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :limit, :accepted, :waiting, :applicant) }
+  scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :thumbnail_url, :limit, :accepted, :waiting, :applicant) }
   scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
   scope :published, -> { where(deleted_at: nil)}
 
@@ -72,7 +74,7 @@ class Event < ApplicationRecord
   end
 
   def self.published_popular_select_tags_with_movies_tags
-    joins(:movies).preload(:tags, :movies).published.select_columns.popular
+    joins(:movies).distinct.preload(:tags, :movies).published.select_columns.popular
   end
 
 end

@@ -26,8 +26,10 @@ end
 
 system('bundle exec rails batch:save_event_tag')
 
-AdminUser.create!(
-  email: ENV['ADMIN_EMAIL'],
-  password: ENV['ADMIN_PASSWORD'],
-  password_confirmation: ENV['ADMIN_PASSWORD']
-)
+if AdminUser.find_by(email: ENV['ADMIN_EMAIL']).nil?
+  AdminUser.create!(
+    email: ENV['ADMIN_EMAIL'],
+    password: ENV['ADMIN_PASSWORD'],
+    password_confirmation: ENV['ADMIN_PASSWORD']
+  )
+end

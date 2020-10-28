@@ -12,7 +12,7 @@ export default class PopularEvents extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.initialState
-    this.fetchEvents = this.fetchEvents.bind(this)
+    // this.fetchEvents = this.fetchEvents.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
   }
 
@@ -27,15 +27,15 @@ export default class PopularEvents extends React.Component {
     }
   }
 
-  componentDidMount = () => {
-    this.fetchEvents()
-  }
+  // componentDidMount = () => {
+  //   this.fetchEvents()
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.range !== prevState.range) {
-      this.fetchEvents()
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (!this.props.events) {
+  //     this.fetchEvents()
+  //   }
+  // }
 
   resetState = () => {
     this.setState(this.initialState)
@@ -87,13 +87,13 @@ export default class PopularEvents extends React.Component {
   }
 
   render() {
-    const { events, isLoading, hasMore, range, totalEventsCount } = this.state
+    const { events, totalEventsCount } = this.props
+
     return (
       <React.Fragment>
         <Container>
           <PageTitle title="人気の勉強会イベント動画" eventCount={totalEventsCount} />
           {events && <EventCards events={events} />}
-          <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetchEvents} />
         </Container>
       </React.Fragment>
     );

@@ -6,5 +6,6 @@ class NewlyEventsController <ApplicationController
                    .newly
                    .page(params[:page])
                    .per(ITEMS_PER_PAGE)
+    @events_total_count = @events.total_count
   end
 end
