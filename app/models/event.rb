@@ -50,7 +50,7 @@ class Event < ApplicationRecord
   scope :recent, -> { where(started_at: [( Time.zone.today.beginning_of_day - 2.weeks)..Time.zone.today.end_of_day]) }
   scope :monthly, -> { where(started_at: [( Time.zone.today.beginning_of_day - 1.month)..Time.zone.today.end_of_day]) }
   scope :popular, -> { order(applicant: :desc)}
-  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 3.days)..Time.zone.today.end_of_day]) }
+  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 10.days)..Time.zone.today.end_of_day]) }
   scope :serch_by_keyword, -> (serch) do
     where('title LIKE ?', "%#{serch}%")
     .or(where('catch LIKE ?', "%#{serch}%"))
@@ -72,7 +72,7 @@ class Event < ApplicationRecord
   end
 
   def self.published_popular_select_tags_with_movies_tags
-    joins(:movies).preload(:tags, :movies).published.select_columns.popular
+    preload(:tags, :movies).published.select_columns.popular
   end
 
 end

@@ -5,7 +5,14 @@ class EventsController <ApplicationController
     @events = event_search_range(params)
               .published_popular_select_tags_with_movies_tags
               .page(params[:page])
-              .per(ITEMS_PER_PAGE)
+              .per(params[:per] || ITEMS_PER_PAGE)
+    @total_events_count = @events.total_count
+    @newly_events = Event.published_popular_select_tags_with_movies_tags
+                         .newly
+                         .order(id: :desc)
+                         .page(params[:page])
+                         .per(params[:per] || ITEMS_PER_PAGE)
+    @total_newly_events_count = @newly_events.total_count
     @tags = Tag.related_event_many_order(TAGS_COUNT)
   end
 

@@ -9,4 +9,4 @@
   content_for :og_description,
   "Tech-TV（新着）タグの勉強会一覧です。Tech-TVは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
-<%= react_component('NewlyEvents', { hasInfiniteScroll: true }) %>
+<%= react_component('NewlyEvents', { moreRead: true, events: @events, totalEventsCount: @events_total_count }) %>

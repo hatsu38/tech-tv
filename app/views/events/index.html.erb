@@ -1,9 +1,9 @@
 <%= react_component('About') %>
-<%= react_component('PopularEvents') %>
+<%= react_component('PopularEvents', {events: @events, totalEventsCount: @total_events_count}) %>
 <div class="padding-sm">
   <%= react_component('PageTitle', {eventCount: EventsController::TAGS_COUNT, title: "人気の勉強会タグ一覧", link: "/tags"}) %>
   <%= react_component('Tags', {tags: @tags}) %>
   <%= react_component('PageTransitionButton', {link: "/tags"}) %>
 </div>
-<%= react_component('NewlyEvents', { hasInfiniteScroll: false }) %>
+<%= react_component('NewlyEvents', { moreRead: false, events: @newly_events, totalEventsCount: @total_newly_events_count }) %>
 <%= react_component('PopularTagRelatedEvents') %>

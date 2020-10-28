@@ -9,6 +9,6 @@
   content_for :og_description,
   "Tech-TV（#{@tag.name}）タグの勉強会一覧です。Tech-TVは、過去に行われたIT勉強会のYouTubeLiveを紹介しているサイトです。参加できなかった勉強会や、気になる勉強会探しにご利用ください。"
 %>
-<%= react_component('TagDetail', {tag: @tag}) %>
-<%= react_component('NewlyEvents', { hasInfiniteScroll: false }) %>
+<%= react_component('TagDetail', {tag: @tag, events: @events, totalCount: @total_count}) %>
+<%= react_component('NewlyEvents', { moreRead: false, events: @newly_events, totalEventsCount: @total_newly_events_count }) %>
 <%= react_component('PopularTagRelatedEvents') %>

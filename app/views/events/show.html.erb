@@ -12,7 +12,7 @@
 <%= react_component('EventDetail', {event: @event, tags: @tags, movies: @movies, thumbnail: @thumbnail}) %>
 <% if @tags.present? %>
   <%= react_component('EventDetailTagRelatedEvents', {event: @event }) %>
-  <%= react_component('NewlyEvents', { hasInfiniteScroll: false }) %>
+  <%= react_component('NewlyEvents', { moreRead: false }) %>
 <% else %>
   <%= react_component('PopularTagRelatedEvents') %>
 <% end %>

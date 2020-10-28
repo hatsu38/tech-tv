@@ -4,7 +4,7 @@ import PageTransitionButton from '../components/PageTransitionButton'
 import MoreReadButton from '../components/MoreReadButton'
 
 const propTypes = {
-  hasInfiniteScroll: PropTypes.bool.isRequired,
+  moreRead: PropTypes.bool.isRequired,
   isLoading:  PropTypes.bool.isRequired,
   hasMore:  PropTypes.bool.isRequired,
   link:  PropTypes.string.isRequired,
@@ -21,9 +21,9 @@ export default class MoreReadOrPageTransitionButton extends React.Component {
   }
 
   render() {
-    const { isLoading, link, hasMore, hasInfiniteScroll } = this.props
+    const { link, moreRead } = this.props
     return (
-      hasInfiniteScroll ? <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetch} />
+      moreRead ? <MoreReadButton isLoading={isLoading} hasMore={hasMore} fetch={this.fetch} />
       : <PageTransitionButton link={link} />
     )
   }
