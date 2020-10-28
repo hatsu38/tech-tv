@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_081752) do
+ActiveRecord::Schema.define(version: 2020_10_28_082914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_081752) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at", comment: "削除日時"
+    t.string "thumbnail_url", default: "", null: false, comment: "サムネイルURL"
     t.index ["connpass_event_id"], name: "index_events_on_connpass_event_id", unique: true
   end
 

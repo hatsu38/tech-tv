@@ -26,11 +26,11 @@ export default class MiniImageEvents extends Component {
         {events.map((event, index) => (
           <div className="media--wrapper" key={`${event.id}-${index}`}>
             <Media as="li" className="pt-15 pb-15 pr-5 pl-5">
-              {event.movies &&
+              {event.thumbnail_url &&
                 <a href={'/events/' + event.id}>
                   <img
                     className="mr-3 responsive--media"
-                    src={event.movies[0]}
+                    src={event.thumbnail_url}
                     alt={event.title}
                   />
                 </a>
