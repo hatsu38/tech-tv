@@ -69,4 +69,7 @@ heroku run rails db:migrate
 
 ## Heroku Scheduler(バッチ)
 - https://dashboard.heroku.com/apps/tech-tv/scheduler
-
+- DBのバックアップ AM3:00
+  ```
+  heroku pg:backups:schedule DATABASE_URL --at '03:00 Asia/Tokyo' --app tech-tv
+  ```
