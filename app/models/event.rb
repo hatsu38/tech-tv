@@ -31,6 +31,7 @@
 #  index_events_on_connpass_event_id  (connpass_event_id) UNIQUE
 #
 class Event < ApplicationRecord
+  include DatetimeFormat
   has_many :event_movies
   has_many :movies, through: :event_movies
 
@@ -77,4 +78,13 @@ class Event < ApplicationRecord
     joins(:movies).distinct.preload(:tags, :movies).published.select_columns.popular
   end
 
+  def tweet_text
+      # Pickを使うとSQLをまた引いてしまうのでlast.urlとしている
+      url = self.movies.last&.url || connpass_event_url
+      <<~USAGE
+        #{title}
+        #{format_datetime(started_at)}から開催 ##{hash_tag}
+        #{url}
+      USAGE
+  end
 end
