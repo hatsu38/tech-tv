@@ -11,18 +11,7 @@ namespace :batch do
 
     client = TwitterBot.new.client
     events.find_each do |event|
-      text = generate_tweet_text(event)
-      client.update(text)
+      client.update(event.tweet_text)
     end
   end
-end
-
-def generate_tweet_text(event)
-  # Pickを使うとSQLをまた引いてしまうのでlast.urlとしている
-  movie_url = event.movies.last.url
-  text = <<EOS
-  #{event.title}
-  #{event.format_datetime(event.started_at)}から開催 ##{event.hash_tag}
-  #{movie_url}
-EOS
 end

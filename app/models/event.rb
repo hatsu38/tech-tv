@@ -78,4 +78,13 @@ class Event < ApplicationRecord
     joins(:movies).distinct.preload(:tags, :movies).published.select_columns.popular
   end
 
+  def tweet_text
+      # Pickを使うとSQLをまた引いてしまうのでlast.urlとしている
+      url = self.movies.last&.url || connpass_event_url
+      <<~USAGE
+        #{title}
+        #{format_datetime(started_at)}から開催 ##{hash_tag}
+        #{url}
+      USAGE
+  end
 end
