@@ -15,6 +15,10 @@ AllCops:
     - "lib/tasks/auto_annotate_models.rake"
     - "spec/rails_helper.rb"
     - "spec/**.rb"
+    - "lib/**/**/**.rake" # TODO: 一時的に避難。いずれExcludeから外す。
+    - "db/seeds.rb" # TODO: 一時的に避難。いずれExcludeから外す。
+    - config/**/**.rb
+    - config.ru
 
 # frozen_string_literal: trueを付ける設定
 Style/FrozenStringLiteralComment:
