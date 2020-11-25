@@ -1,5 +1,4 @@
 class Api::V1::BaseController < ApplicationController
-
   if Rails.env.production?
     rescue_from StandardError, with: :rescue_internal_error
     rescue_from ActionController::RoutingError, with: :rescue_not_found
@@ -15,7 +14,7 @@ class Api::V1::BaseController < ApplicationController
       #{e.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
-    render json: { message: "not found", status: 404 }
+    render json: { message: "not found", status: :not_found }
   end
 
   def rescue_internal_error(e)

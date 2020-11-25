@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-
   before_action :ensure_domain
 
-  FQDN = 'www.tech-tv.site'
+  FQDN = "www.tech-tv.site".freeze
   # redirect correct server from herokuapp domain for SEO
   # www.tech-tv.siteへリダイレクトさせる
   def ensure_domain
@@ -29,7 +28,7 @@ class ApplicationController < ActionController::Base
       #{e&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
-    render 'errors/404.html.erb', status: 404
+    render "errors/404.html.erb", status: :not_found
   end
 
   def rescue_internal_error(e = nil)
@@ -39,6 +38,6 @@ class ApplicationController < ActionController::Base
       #{e&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
-    render 'errors/500.html.erb', status: 500
+    render "errors/500.html.erb", status: :internal_server_error
   end
 end
