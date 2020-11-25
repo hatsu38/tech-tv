@@ -1,4 +1,4 @@
-class NewlyEventsController <ApplicationController
+class NewlyEventsController < ApplicationController
   ITEMS_PER_PAGE = 10
 
   def index

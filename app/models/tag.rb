@@ -8,13 +8,13 @@
 #  updated_at   :datetime         not null
 #
 class Tag < ApplicationRecord
-  has_many :event_tags
+  has_many :event_tags, dependent: :destroy
   has_many :events, through: :event_tags
 
   extend OrderAsSpecified
 
   def self.related_event_many_order(num = nil)
-    ranking_tag_ids = joins(:events).group(:tag_id).count.sort_by{ |_, v| -v }.map(&:first)
+    ranking_tag_ids = joins(:events).group(:tag_id).count.sort_by { |_, v| -v }.map(&:first)
     tags = where(id: ranking_tag_ids).order_as_specified(id: ranking_tag_ids)
     return tags if num.nil?
 

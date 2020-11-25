@@ -29,7 +29,7 @@
 #
 #  index_events_on_connpass_event_id  (connpass_event_id) UNIQUE
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Event, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"

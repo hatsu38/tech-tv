@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   end
 
   get '/sitemap' => redirect("https://s3-ap-northeast-1.amazonaws.com/#{ENV['S3_BUCKET_NAME']}/sitemap.xml.gz")
-  get "*anything" => "application#rescue_404"
+  get "*anything" => "application#rescue_not_found"
 end

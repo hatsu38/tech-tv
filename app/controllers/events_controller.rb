@@ -1,4 +1,4 @@
-class EventsController <ApplicationController
+class EventsController < ApplicationController
   ITEMS_PER_PAGE = 10
   TAGS_COUNT = 20
   def index
@@ -27,11 +27,11 @@ class EventsController <ApplicationController
 
   def event_search_range(params)
     case params[:range]
-    when 'recent', nil
+    when "recent", nil
       Event.recent
-    when 'monthly'
+    when "monthly"
       Event.monthly
-    when 'all'
+    when "all"
       Event.all
     end
   end

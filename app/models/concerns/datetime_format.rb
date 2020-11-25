@@ -3,27 +3,27 @@ module DatetimeFormat
 
   included do
     def created_at_month
-      self.created_at&.strftime("%Y年%m月")
+      created_at&.strftime("%Y年%m月")
     end
 
     def updated_at_month
-      self.updated_at&.strftime("%Y年%m月")
+      updated_at&.strftime("%Y年%m月")
     end
 
     def created_at_date
-      self.created_at&.strftime("%Y年%m月%d日")
+      created_at&.strftime("%Y年%m月%d日")
     end
 
     def updated_at_date
-      self.updated_at&.strftime("%Y年%m月%d日")
+      updated_at&.strftime("%Y年%m月%d日")
     end
 
     def created_at_datetime
-      self.created_at&.strftime("%Y/%m/%d %H:%M")
+      created_at&.strftime("%Y/%m/%d %H:%M")
     end
 
     def updated_at_datetime
-      self.updated_at&.strftime("%Y/%m/%d %H:%M")
+      updated_at&.strftime("%Y/%m/%d %H:%M")
     end
 
     def format_datetime(datetime)

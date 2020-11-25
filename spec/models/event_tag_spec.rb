@@ -18,7 +18,7 @@
 #  fk_rails_...  (event_id => events.id)
 #  fk_rails_...  (tag_id => tags.id)
 #
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe EventTag, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
