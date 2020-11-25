@@ -40,7 +40,7 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/*'
-  Max: 23
+  Max: 25
 
 # IndexをはらずにUniqueのバリデーションをつけるのを許可
 Rails/UniqueValidationWithoutIndex:
