@@ -48,8 +48,11 @@ group :development, :test do
 
   gem 'pry-byebug' # Binding.pry
   gem 'pry-rails' # Binding.pry
-  gem "rubocop", require: false
-  gem "rubocop-rails", require: false
+  gem "rubocop" # Lint Announce
+  gem 'rubocop-performance' # Lint Announce
+  gem 'rubocop-rails'  # Lint Announce
+  gem 'rubocop-rspec' # Lint Announce
+  gem 'rubocop-thread_safety' # Lint Announce
 end
 
 group :development do

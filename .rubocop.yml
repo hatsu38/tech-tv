@@ -1,0 +1,43 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6.5
+  NewCops: enable
+  Exclude:
+    - "vendor/**/*"
+    - "db/schema.rb"
+    - bin/*
+    - tags_yml_generate.rb
+    - "node_modules/**/*"
+    - "lib/tasks/auto_annotate_models.rake"
+    - "spec/rails_helper.rb"
+    - "spec/**.rb"
+
+# frozen_string_literal: trueを付ける設定
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# シングルクォーテーションの統一をやめる
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Exclude:
+    - 'db/migrate/*'
+
+# メソッドの長さ100桁
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
+  Max: 100
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+# 日本語のコメントを許可
+Style/AsciiComments:
+  Enabled: false
