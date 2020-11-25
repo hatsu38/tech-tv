@@ -50,3 +50,5 @@ Rails/UniqueValidationWithoutIndex:
 Style/AsciiComments:
   Enabled: false
 
+Layout/LineLength:
+  MAX: 140
