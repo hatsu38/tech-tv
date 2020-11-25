@@ -1,5 +1,6 @@
 class TwitterBot
   attr_accessor :client
+
   def initialize
     self.client = Twitter::REST::Client.new do |config|
       config.consumer_key        = Rails.application.credentials.twitter[:consumer_key]

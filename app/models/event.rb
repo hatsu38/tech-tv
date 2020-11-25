@@ -32,46 +32,61 @@
 #
 class Event < ApplicationRecord
   include DatetimeFormat
-  has_many :event_movies
+  has_many :event_movies, dependent: :destroy
   has_many :movies, through: :event_movies
 
-  has_many :event_tags
+  has_many :event_tags, dependent: :destroy
   has_many :tags, through: :event_tags
 
-  validates :title, presence: true, length: {maximum: 255}
+  validates :title, presence: true, length: { maximum: 255 }
   validates :connpass_event_url, presence: true
   validates :started_at, presence: true
   validates :ended_at, presence: true
-  validates :limit, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 10}
-  validates :event_type, presence: true, length: {maximum: 255}
-  validates :accepted, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 10}
-  validates :waiting, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 10}
-  validates :applicant, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }, length: {maximum: 10}
-  validates :connpass_event_id, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0 }
+  validates :limit, presence: true,
+                    numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                    length: { maximum: 10 }
+  validates :event_type, presence: true, length: { maximum: 255 }
+  validates :accepted, presence: true,
+                       numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                       length: { maximum: 10 }
+  validates :waiting, presence: true,
+                      numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                      length: { maximum: 10 }
+  validates :applicant, presence: true,
+                        numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+                        length: { maximum: 10 }
+  validates :connpass_event_id, presence: true,
+                                numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :connpass_updated_at, presence: true
 
-  scope :recent, -> { where(started_at: [( Time.zone.today.beginning_of_day - 2.weeks)..Time.zone.today.end_of_day]) }
-  scope :monthly, -> { where(started_at: [( Time.zone.today.beginning_of_day - 1.month)..Time.zone.today.end_of_day]) }
-  scope :popular, -> { order(applicant: :desc)}
-  scope :newly, -> { where(created_at: [( Time.zone.today.beginning_of_day - 10.days)..Time.zone.today.end_of_day]) }
-  scope :serch_by_keyword, -> (serch) do
-    where('title LIKE ?', "%#{serch}%")
-    .or(where('catch LIKE ?', "%#{serch}%"))
-    .or(where('hash_tag LIKE ?', "%#{serch}%"))
-  end
+  scope :recent, -> { where(started_at: [(Time.zone.today.beginning_of_day - 2.weeks)..Time.zone.today.end_of_day]) }
+  scope :monthly, -> { where(started_at: [(Time.zone.today.beginning_of_day - 1.month)..Time.zone.today.end_of_day]) }
+  scope :popular, -> { order(applicant: :desc) }
+  scope :newly, -> { where(created_at: [(Time.zone.today.beginning_of_day - 10.days)..Time.zone.today.end_of_day]) }
+  scope :serch_by_keyword, lambda { |serch|
+    where("title LIKE ?", "%#{serch}%")
+      .or(where("catch LIKE ?", "%#{serch}%"))
+      .or(where("hash_tag LIKE ?", "%#{serch}%"))
+  }
 
-  scope :select_columns, -> { select(:id, :title, :catch, :connpass_event_url, :hash_tag, :started_at, :ended_at, :thumbnail_url, :limit, :accepted, :waiting, :applicant) }
-  scope :popular_event_tags, -> (num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
-  scope :published, -> { where(deleted_at: nil)}
+  scope :select_columns, lambda {
+    select(
+      :id, :title, :catch, :connpass_event_url, :hash_tag,
+      :started_at, :ended_at, :thumbnail_url, :limit,
+      :accepted, :waiting, :applicant
+    )
+  }
+  scope :popular_event_tags, ->(num = 10) { popular.limit(num).map(&:tags).flatten.compact.uniq }
+  scope :published, -> { where(deleted_at: nil) }
 
   DEFAULT_GET_EVENTS_NUMS = 10
 
   def logical_delete
-    self.update(deleted_at: Time.zone.now)
+    update(deleted_at: Time.zone.now)
   end
 
   def restore
-    self.update(deleted_at: nil)
+    update(deleted_at: nil)
   end
 
   def self.published_popular_select_tags_with_movies_tags
@@ -79,12 +94,12 @@ class Event < ApplicationRecord
   end
 
   def tweet_text
-      # Pickを使うとSQLをまた引いてしまうのでlast.urlとしている
-      url = self.movies.last&.url || connpass_event_url
-      <<~USAGE
-        #{title}
-        #{format_datetime(started_at)}から開催 ##{hash_tag}
-        #{url}
-      USAGE
+    # Pickを使うとSQLをまた引いてしまうのでlast.urlとしている
+    url = movies.last&.url || connpass_event_url
+    <<~USAGE
+      #{title}
+      #{format_datetime(started_at)}から開催 ##{hash_tag}
+      #{url}
+    USAGE
   end
 end
