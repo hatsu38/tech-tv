@@ -29,8 +29,7 @@ Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/Documentation:
-  Exclude:
-    - 'db/migrate/*'
+  Enabled: false
 
 # メソッドの長さ100桁
 Metrics/MethodLength:
@@ -41,7 +40,13 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Exclude:
     - 'db/migrate/*'
+  Max: 23
+
+# IndexをはらずにUniqueのバリデーションをつけるのを許可
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
 
 # 日本語のコメントを許可
 Style/AsciiComments:
   Enabled: false
+
