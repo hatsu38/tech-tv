@@ -52,3 +52,6 @@ Style/AsciiComments:
 
 Layout/LineLength:
   Max: 140
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
