@@ -5,11 +5,19 @@ default: &default
 
 development:
   <<: *default
-  database: connpass_tube_api_development
+  database: <%= ENV['DATABASE_NAME'] || 'connpass_tube_api_development' %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  username: <%= ENV['DATABASE_USER'] || '' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || '' %>
 
 test:
   <<: *default
-  database: connpass_tube_api_test
+  database: <%= ENV['DATABASE_NAME'] || 'connpass_tube_api_test' %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  port: <%= ENV['DATABASE_PORT'] || 5432 %>
+  username: <%= ENV['DATABASE_USER'] || '' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || '' %>
 
 production:
   <<: *default
