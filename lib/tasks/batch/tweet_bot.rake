@@ -2,11 +2,12 @@
 namespace :batch do
   desc "イベントをTwitterBotがツイート"
   task tweet_bot: :environment do
-    # 19:05にボットが動く場合
-    # 19:00~19:59:59までに開催しているイベントをTweetする
-    from = Time.zone.now.beginning_of_hour
-    to = Time.zone.now.end_of_hour
-    events = Event.where(started_at: from..to).order(:started_at).eager_load(:movies)
+    # 19:10にボットが動く場合
+    # 18:00~18:59:59に開催が終了したイベントをTweetする
+    BEFORE_HOUR = 1
+    from = Time.zone.now.beginning_of_hour - BEFORE_HOUR.hour
+    to = Time.zone.now.end_of_hour - BEFORE_HOUR.hour
+    events = Event.where(ended_at: from..to).order(:ended_at).eager_load(:movies)
     next if events.blank?
 
     client = TwitterBot.new.client
