@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   # redirect correct server from herokuapp domain for SEO
   # www.tech-tv.siteへリダイレクトさせる
   def ensure_domain
-    if request.host == "tech-tv.site" || /\.herokuapp.com/ =~ request.host
-      # 主にlocalテスト用の対策80と443以外でアクセスされた場合ポート番号をURLに含める
-      port = ":#{request.port}" unless [80, 443].include?(request.port)
-      redirect_to "#{request.protocol}#{FQDN}#{port}#{request.path}", status: :moved_permanently
-    end
+    return unless request.host == "tech-tv.site" || /\.herokuapp.com/ =~ request.host
+
+    # 主にlocalテスト用の対策80と443以外でアクセスされた場合ポート番号をURLに含める
+    port = ":#{request.port}" unless [80, 443].include?(request.port)
+    redirect_to "#{request.protocol}#{FQDN}#{port}#{request.path}", status: :moved_permanently
   end
 
   if Rails.env.production?
@@ -21,21 +21,21 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, with: :rescue_not_found
   end
 
-  def rescue_not_found(e = nil)
+  def rescue_not_found(error = nil)
     Rails.logger.warn(
       "message: 404 NotFound #{request.url},
-      #{e&.message},
-      #{e&.class}"
+      #{error&.message},
+      #{error&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
     render "errors/404.html.erb", status: :not_found
   end
 
-  def rescue_internal_error(e = nil)
+  def rescue_internal_error(error = nil)
     Rails.logger.error(
       "message: 500 InternalError #{request.url},
-      #{e&.message},
-      #{e&.class}"
+      #{error&.message},
+      #{error&.class}"
     )
     Raven.extra_context(params: params&.to_unsafe_h, url: request.url)
     render "errors/500.html.erb", status: :internal_server_error
