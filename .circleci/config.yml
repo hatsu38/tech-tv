@@ -19,6 +19,8 @@ jobs:
           DATABASE_PORT: 5432
           TZ: Asia/Tokyo
 
+    working_directory: ~/repo
+
     steps:
       - checkout
 
