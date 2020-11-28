@@ -6,9 +6,9 @@ version: 2.1
 
 jobs:
   build_and_test:
-    working_directory: ~/repo
     docker:
       - image: cimg/ruby:2.6.5-node
+      - image: circleci/postgres:11.5-alpine
         environment:
           RAILS_ENV: test
           BUNDLE_PATH: ./vendor/bundle
@@ -18,7 +18,6 @@ jobs:
           DATABASE_HOST: 127.0.0.1
           DATABASE_PORT: 5432
           TZ: Asia/Tokyo
-      - image: circleci/postgres:11.5-alpine
 
     steps:
       - checkout
