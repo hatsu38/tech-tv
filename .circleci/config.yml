@@ -6,12 +6,13 @@ version: 2.1
 
 jobs:
   build_and_test:
+    working_directory: ~/repo
     docker:
       - image: circleci/postgres:11.5-alpine
       - image: cimg/ruby:2.6.5-node
         environment:
           RAILS_ENV: test
-          BUNDLE_PATH: vendor/bundle
+          BUNDLE_PATH: ./vendor/bundle
           DATABASE_NAME: connpass_tube_api_test
           DATABASE_USER: postgres
           DATABASE_PASSWORD: ""
@@ -43,7 +44,7 @@ jobs:
 
       - save_cache:
           paths:
-            - vendor/bundle
+            - ./vendor/bundle
           key: rails-bundle-v1-{{ checksum "Gemfile.lock" }}
 
       - restore_cache:
