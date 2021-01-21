@@ -1,5 +1,5 @@
 # YouTube Liveの勉強会 API
-- WebSite(仮)：https://tech-tv.hatsu38.com/
+- WebSite(仮)：https://www.tech-tv.site/
 
 ## デプロイ方法
 - サーバー：heroku
