@@ -35,8 +35,8 @@ describe('components/Tags', () => {
         </Badge>
       ), container);
     });
-    const test = container.querySelectorAll('a');
-    test.forEach((t, idx) => {
+    const tagsAnchor = container.querySelectorAll('a');
+    tagsAnchor.forEach((t, idx) => {
       expect(t.textContent).toBe(tags[idx].name);
     })
   });
