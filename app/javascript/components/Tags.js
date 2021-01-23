@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Badge } from 'react-bootstrap';
-import '../stylesheets/components/tag'
+import '../stylesheets/components/tag.scss'
 
 const propTypes = {
   tags: PropTypes.array

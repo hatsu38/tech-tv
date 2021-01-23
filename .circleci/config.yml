@@ -74,6 +74,9 @@ jobs:
           name: run tests
           command: |
             bundle exec rspec --format documentation --force-color --backtrace
+      - run:
+          name: yarn test
+          command: yarn test
 
       # run rubocop!
       - run:
