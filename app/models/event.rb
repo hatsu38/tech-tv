@@ -19,7 +19,7 @@
 #  lon(開催会場の経度)                                                   :float
 #  place(開催会場)                                                       :string           default(""), not null
 #  started_at(イベント開催日時 (ISO-8601形式))                           :datetime         not null
-#  thumbnail_url                                                         :string           default(""), not null
+#  thumbnail_url(サムネイルURL)                                          :string           default(""), not null
 #  title(タイトル)                                                       :string           not null
 #  waiting(補欠者数)                                                     :integer          default(0), not null
 #  created_at                                                            :datetime         not null
