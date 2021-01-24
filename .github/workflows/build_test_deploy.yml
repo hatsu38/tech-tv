@@ -69,12 +69,9 @@ jobs:
         run: |
           bundle check || bundle install --path vendor/bundle --jobs 4 --retry 3
 
-      - name: Setup Database create
+      - name: Setup Database
         run: |
-          bundle exec rails db:create
-      - name: Setup Database create
-        run: |
-          bundle exec rails db:schema:load --trace
+          bundle exec rails db:create db:schema:load --trace
 
       - name: Exec RSpec
         run: |
