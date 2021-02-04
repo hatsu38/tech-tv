@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.6.5"
+ruby "2.7.2"
 
 gem "activeadmin" # 管理画面
 gem "aws-sdk" # s3にsitemapを設置
