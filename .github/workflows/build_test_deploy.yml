@@ -43,10 +43,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-rails-bundle-v1-
 
-      - name: Ruby 2.6.5のセットアップ
+      - name: Ruby 2.7.2のセットアップ
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6.5
+          ruby-version: 2.7.2
 
       - name: pg gem の依存関係のインストール
         run: |
