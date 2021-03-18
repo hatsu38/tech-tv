@@ -63,7 +63,7 @@ jobs:
 
       - name: gem install
         run: |
-          gem install bundler -v 1.17.3
+          gem install bundler -v 2.1.4
 
       - name: bundler install
         run: |
