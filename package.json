@@ -1,5 +1,5 @@
 {
-  "name": "connpass_tube_api",
+  "name": "techtv",
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.12.1",

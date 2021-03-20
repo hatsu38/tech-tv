@@ -1,5 +1,5 @@
 # Tech-TV
-- WebSite(仮)：https://www.tech-tv.site/
+- WebSite：https://www.tech-tv.site/
 
 ## Development
 
@@ -18,8 +18,8 @@ bundle exec rails batch:save_event
 
 ### Versions
 |Language/Framework |Version |
-|:---|:---:|---:|
-|Ruby |2.6.5|
+|:---|:---:|
+|Ruby |2.7.2|
 |rails |6.0.3.4 |
 |node| 14.15.1 |
 |PostgreSQL | 12.3 |

@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DATABASE_NAME'] || 'connpass_tube_api_development' %>
+  database: <%= ENV['DATABASE_NAME'] || 'techtv_development' %>
   host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   port: <%= ENV['DATABASE_PORT'] || 5432 %>
   username: <%= ENV['DATABASE_USER'] || '' %>
@@ -13,7 +13,7 @@ development:
 
 test:
   <<: *default
-  database: <%= ENV['DATABASE_NAME'] || 'connpass_tube_api_test' %>
+  database: <%= ENV['DATABASE_NAME'] || 'techtv_test' %>
   host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   port: <%= ENV['DATABASE_PORT'] || 5432 %>
   username: <%= ENV['DATABASE_USER'] || '' %>
@@ -21,6 +21,6 @@ test:
 
 production:
   <<: *default
-  database: connpass_tube_api_production
-  username: connpass_tube_api
-  password: <%= ENV['CONNPASS_TUBE_API_DATABASE_PASSWORD'] %>
+  database: techtv_production
+  username: techtv
+  password: <%= ENV['DATABASE_PASSWORD'] %>
