@@ -23,7 +23,7 @@ jobs:
     env:
       RAILS_ENV: test
       BUNDLE_PATH: ./vendor/bundle
-      DATABASE_NAME: connpass_tube_api_test
+      DATABASE_NAME: techtv_test
       DATABASE_USER: postgres
       DATABASE_PASSWORD: ""
       DATABASE_HOST: 127.0.0.1
