@@ -46,6 +46,7 @@ jobs:
       - name: Cache yarn.lock
         uses: actions/cache@v2
         with:
+          path: 'node_modules'
           key: ${{ runner.os }}-rails-yarn-v1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-rails-yarn-v1-
