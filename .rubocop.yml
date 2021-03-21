@@ -8,7 +8,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - "vendor/**/*"
-    - "db/**/**.rb"
+    - "db/schema.rb"
     - bin/*
     - tags_yml_generate.rb
     - "node_modules/**/*"
@@ -16,6 +16,7 @@ AllCops:
     - "spec/rails_helper.rb"
     - "spec/**.rb"
     - "lib/**/**/**.rake" # TODO: 一時的に避難。いずれExcludeから外す。
+    - "db/seeds.rb" # TODO: 一時的に避難。いずれExcludeから外す。
     - config/**/**.rb
     - config.ru
 
