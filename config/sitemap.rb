@@ -1,3 +1,6 @@
+require "csv"
+require 'aws-sdk-s3'
+
 if Rails.env.production?
   # Set the host name for URL creation
   SitemapGenerator::Sitemap.default_host = "https://www.tech-tv.site/"

@@ -4,18 +4,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.2"
 
 gem "activeadmin" # 管理画面
-gem "aws-sdk" # s3にsitemapを設置
+gem "aws-sdk-s3", require: false  # s3にsitemapを設置
 gem "devise" # 管理画面用
 gem "order_as_specified" # Whereの順にOrderする
 gem "sitemap_generator" # Sitemap作成
-gem "twitter" # Twitter Bot作成用
+gem "twitter", require: false # Twitter Bot作成用
 
 gem "react-rails" # reactを使用
 
 gem "dotenv-rails" # .envファイル
 gem "kaminari" # Paginate
-gem "rack-cors" # corsの設定
+gem "rack-cors", require: false # corsの設定
 gem "sentry-raven" # Error検知
+gem "scout_apm" # アプリのモニタリング
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.2", ">= 6.0.2.2"
