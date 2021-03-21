@@ -1,0 +1,4 @@
+json = {}
+json[:events] = render partial: 'api/v1/commons/event', collection: @events, as: :event
+json[:total_count] = @events.total_count
+json

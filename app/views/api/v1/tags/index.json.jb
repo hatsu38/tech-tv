@@ -1,0 +1,10 @@
+json = {}
+json[:tags] = @tags.map do |tag|
+  {
+    id: tag.id,
+    name: tag.name,
+    event_count: tag.events&.size
+  }
+end
+json[:total_count] = @tags&.total_count
+json

@@ -1,0 +1,17 @@
+json = {
+  id: event.id,
+  title: event.title,
+  catch: event.catch,
+  connpass_event_url: event.connpass_event_url,
+  hash_tag: event.hash_tag,
+  started_at: event.started_at,
+  ended_at: event.ended_at,
+  thumbnail_url: event.thumbnail_url,
+  limit: event.limit,
+  accepted: event.accepted,
+  waiting: event.waiting,
+  applicant: event.applicant,
+  tags: event.tags,
+}
+json
+
