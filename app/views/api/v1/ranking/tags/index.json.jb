@@ -1,0 +1,9 @@
+json = {}
+json[:tags] = @tags.map do |tag|
+  {
+    id: tag.id,
+    name: tag.name,
+    events: tag.events.published_popular_select_tags_with_movies_tags.limit(@events_num), partial: "api/v1/commons/event", as: :event
+  }
+end
+json

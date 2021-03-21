@@ -13,6 +13,7 @@ gem "twitter", require: false # Twitter Bot作成用
 gem "react-rails" # reactを使用
 
 gem "dotenv-rails" # .envファイル
+gem "jb" # Jsonを書く
 gem "kaminari" # Paginate
 gem "rack-cors", require: false # corsの設定
 gem "scout_apm" # アプリのモニタリング
@@ -31,7 +32,7 @@ gem "webpacker", "~> 4.0"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.7"
+# gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
