@@ -14,4 +14,3 @@ json[:moveis] = @movies.map do |movie|
   }
 end
 json
-

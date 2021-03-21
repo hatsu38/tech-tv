@@ -13,11 +13,11 @@ gem "twitter", require: false # Twitter Bot作成用
 gem "react-rails" # reactを使用
 
 gem "dotenv-rails" # .envファイル
+gem "jb" # Jsonを書く
 gem "kaminari" # Paginate
 gem "rack-cors", require: false # corsの設定
 gem "scout_apm" # アプリのモニタリング
 gem "sentry-raven" # Error検知
-gem "jb" # Jsonを書く
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.2", ">= 6.0.2.2"
