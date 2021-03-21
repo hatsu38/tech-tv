@@ -1,3 +1,4 @@
+require "twitter"
 class TwitterBot
   attr_accessor :client
 
