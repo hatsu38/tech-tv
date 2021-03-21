@@ -43,6 +43,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-rails-bundle-v1-
 
+      - name: Cache yarn.lock
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-rails-yarn-v1-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-rails-yarn-v1-
+
       - name: Ruby 2.7.2のセットアップ
         uses: ruby/setup-ruby@v1
         with:
