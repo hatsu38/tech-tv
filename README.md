@@ -20,7 +20,7 @@ bundle exec rails batch:save_event
 |Language/Framework |Version |
 |:---|:---:|
 |Ruby |2.7.2|
-|rails |6.0.3.4 |
+|rails |6.1.3 |
 |node| 14.15.1 |
 |PostgreSQL | 12.3 |
 
