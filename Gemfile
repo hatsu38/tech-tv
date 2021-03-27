@@ -18,6 +18,7 @@ gem "kaminari" # Paginate
 gem "rack-cors", require: false # corsの設定
 gem "scout_apm" # アプリのモニタリング
 gem "sentry-raven" # Error検知
+gem "sidekiq" # 非同期Job
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails"

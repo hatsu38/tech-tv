@@ -289,6 +289,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
+    redis (4.2.5)
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -356,6 +357,10 @@ GEM
     semantic_range (3.0.0)
     sentry-raven (3.1.1)
       faraday (>= 1.0)
+    sidekiq (6.2.0)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_oauth (0.3.1)
     sitemap_generator (6.1.2)
       builder (~> 3.0)
@@ -454,6 +459,7 @@ DEPENDENCIES
   scout_apm
   selenium-webdriver
   sentry-raven
+  sidekiq
   sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
