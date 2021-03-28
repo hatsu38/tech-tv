@@ -8,7 +8,7 @@ class Batch::SaveEventJob < ApplicationJob
   SEARCH_START_DATE = Date.new(2012, 0o1, 0o1)
   SEARCH_DATE_ARRAY = (SEARCH_START_DATE..Date.current).map(&:beginning_of_month).uniq
 
-  def perform
+  def perform(_args = {})
     SEARCH_DATE_ARRAY.each do |date|
       ym_query = fix_format_date_to_ymquery(date)
       api_url = "#{REQUEST_URL_BY_YOUTUBE}&ym=#{ym_query}"
