@@ -1,6 +1,12 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  namespace :admin do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   root to: "events#index"
   resources :healthcheck, only: [:index]
   resources :events, only: [:index, :show]
