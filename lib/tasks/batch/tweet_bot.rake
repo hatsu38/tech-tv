@@ -7,6 +7,6 @@ namespace :batch do
     BEFORE_HOUR = 1.hour
     from = Time.zone.now.beginning_of_hour - BEFORE_HOUR
     to = Time.zone.now.end_of_hour - BEFORE_HOUR
-    Batch::EventTweetJob.new.perform(from, to)
+    Batch::EventTweetJob.perform_later(from, to)
   end
 end
