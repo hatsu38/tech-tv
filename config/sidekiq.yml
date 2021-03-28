@@ -1,6 +1,7 @@
 :concurrency: 5
-production:
-  :concurrency: 2
-queues:
-  - [mailers, 1]
-  - [default, 1]
+:queues:
+  - default
+  - mailers
+  - batches
+
+
