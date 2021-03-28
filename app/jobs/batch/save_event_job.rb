@@ -1,12 +1,12 @@
 class Batch::SaveEventJob < ApplicationJob
   queue_as :default
 
-  REQUEST_BASE_URL = 'https://connpass.com/api/v1/event/'
-  YOUTUBE_LIVE_KEYWORD = "youtu.be"
+  REQUEST_BASE_URL = "https://connpass.com/api/v1/event/".freeze
+  YOUTUBE_LIVE_KEYWORD = "youtu.be".freeze
   GET_COUNT = 100
-  REQUEST_URL_BY_YOUTUBE = "#{REQUEST_BASE_URL}?keyword=#{YOUTUBE_LIVE_KEYWORD}&count=#{GET_COUNT}"
-  SEARCH_START_DATE = Date.new(2012,01,01)
-  SEARCH_DATE_ARRAY = (SEARCH_START_DATE..Date.today).map(&:beginning_of_month).uniq
+  REQUEST_URL_BY_YOUTUBE = "#{REQUEST_BASE_URL}?keyword=#{YOUTUBE_LIVE_KEYWORD}&count=#{GET_COUNT}".freeze
+  SEARCH_START_DATE = Date.new(2012, 0o1, 0o1)
+  SEARCH_DATE_ARRAY = (SEARCH_START_DATE..Date.current).map(&:beginning_of_month).uniq
 
   def perform
     SEARCH_DATE_ARRAY.each do |date|
@@ -18,15 +18,14 @@ class Batch::SaveEventJob < ApplicationJob
       fixed_response = JSON.parse(response)
       next unless exist_response_data?(fixed_response)
 
-      fixed_response['events'].each do |connpass_event|
+      fixed_response["events"].each do |connpass_event|
         event = Event.find_or_initialize_by(connpass_event_id: connpass_event["event_id"])
         formated_params = format_event_to_params(connpass_event)
-        binding.pry
         begin
-          event.update_attributes!(formated_params)
-        rescue => exception
-          Rails.logger.error(exception.message)
-          Raven.capture_exception(exception) if Rails.env.production?
+          event.update!(formated_params)
+        rescue StandardError => e
+          Rails.logger.error(e.message)
+          Raven.capture_exception(e) if Rails.env.production?
         end
       end
       sleep 1
@@ -36,17 +35,17 @@ class Batch::SaveEventJob < ApplicationJob
   private
 
   def fix_format_date_to_ymquery(date)
-    date.year.to_s + format('%02d', date.month)
+    date.year.to_s + format("%02d", date.month)
   end
 
   def get_response_body(api_url)
     url = URI.parse(api_url)
     response = Net::HTTP.get_response(url)
-    response.body.presence || ''
+    response.body.presence || ""
   end
 
   def exist_response_data?(response)
-    0 < response['results_returned'].to_i
+    response["results_returned"].to_i.positive?
   end
 
   def format_event_to_params(event)
@@ -71,5 +70,4 @@ class Batch::SaveEventJob < ApplicationJob
       connpass_updated_at: event["updated_at"].to_datetime
     }
   end
-
 end
