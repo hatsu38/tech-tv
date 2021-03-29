@@ -1,6 +1,6 @@
 class Batch::SaveEventTagDiffDaysJob < ApplicationJob
   queue_as :default
-  def perfrom(today: Date.current, from_day: 1.day)
+  def perform(today: Date.current, from_day: Date.current.yesterday)
     events = Event.where(created_at: [from_day..today]).where(updated_at: [from_day..today])
     return if events.blank?
 
