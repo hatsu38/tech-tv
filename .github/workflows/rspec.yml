@@ -1,17 +1,20 @@
-name: Build And Test
+name: RSpec
+
 on:
   pull_request:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  build_and_test:
-    name: Exec RSpec rubocop brakeman jest
+  rspec:
+    name: RSpec
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11.5
+        image: postgres:13
+        env:
+          POSTGRES_PASSWORD: password
         ports:
           - 5432:5432
         options: >-
@@ -35,68 +38,23 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Cache Gemfile.lock
-        uses: actions/cache@v2
-        with:
-          path: ./vendor/bundle
-          key: ${{ runner.os }}-rails-bundle-v1-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-rails-bundle-v1-
-
-      - name: Cache yarn.lock
-        uses: actions/cache@v2
-        with:
-          path: 'node_modules'
-          key: ${{ runner.os }}-rails-yarn-v1-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-rails-yarn-v1-
-
-      - name: Ruby 2.7.2のセットアップ
+      - name: Rubyセットアップ
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          bundler-cache: true
 
-      - name: pg gem の依存関係のインストール
-        run: |
-          sudo apt-get update; sudo apt-get install libpq-dev
-
-      - name: node v14.15.1のセットアップ
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.15.1'
-
-      - name: yarn install
-        run: |
-          yarn install --check-files
-
-      - name: gem install
-        run: |
-          gem install bundler -v 2.1.4
-
-      - name: bundler install
-        run: |
-          bundle check || bundle install --path vendor/bundle --jobs 4 --retry 3
-
-      - name: Setup Database
+      - name: Databaseのセットアップ
         run: |
           bundle exec rails db:create db:schema:load --trace
 
-      - name: Exec RSpec
+      - name: RSpecを実行
         run: |
           bundle exec rspec --format documentation --force-color --backtrace
-
-      - name: Exec Brakeman
-        run: |
-          bundle exec brakeman -A
-
-      - name: Exec yarn test
-        run: |
-          yarn test
 
   test_slack_notification:
     name: 【Test Result】Slack Notification by Github Actions
     runs-on: ubuntu-latest
-    needs: build_and_test
+    needs: RSpec
     env:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
       SLACK_USERNAME: Github Actions Result
@@ -118,7 +76,7 @@ jobs:
 
   deploy_production:
     name: Herokuにデプロイ
-    needs: build_and_test
+    needs: RSpec
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
