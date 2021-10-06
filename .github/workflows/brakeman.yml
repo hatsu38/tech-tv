@@ -1,4 +1,4 @@
-name: Rubocop
+name: Brakeman
 
 on:
   pull_request:
@@ -7,8 +7,8 @@ on:
       - master
 
 jobs:
-  rubocop:
-    name: rubocop
+  brakeman:
+    name: brakeman
     runs-on: ubuntu-latest
 
     steps:
