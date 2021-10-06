@@ -1,0 +1,25 @@
+name: Rubocop
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  rubocop:
+    name: rubocop
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Ruby セットアップ
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: rubocopを実行実行
+        run: |
+          bundle exec rubocop --extra-details --display-style-guide --parallel --display-cop-names
