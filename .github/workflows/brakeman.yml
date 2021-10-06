@@ -20,6 +20,6 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: rubocopを実行実行
+      - name: brakemanを実行実行
         run: |
-          bundle exec rubocop --extra-details --display-style-guide --parallel --display-cop-names
+          bundle exec brakeman -A
