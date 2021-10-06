@@ -100,7 +100,7 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.7.3)
+    bootsnap (1.9.1)
       msgpack (~> 1.0)
     brakeman (5.0.0)
     buftok (0.2.0)
@@ -220,7 +220,7 @@ GEM
       activerecord (>= 5.0.0)
     orm_adapter (0.5.0)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
     pry (0.13.1)
@@ -347,7 +347,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scout_apm (4.0.4)
+    scout_apm (4.1.2)
       parser
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
