@@ -89,10 +89,6 @@ jobs:
         run: |
           bundle exec brakeman -A
 
-      - name: Exec rubocop
-        run: |
-          bundle exec rubocop --extra-details --display-style-guide --parallel --display-cop-names
-
       - name: Exec yarn test
         run: |
           yarn test
