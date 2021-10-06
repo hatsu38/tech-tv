@@ -61,7 +61,7 @@ jobs:
           sudo apt-get update; sudo apt-get install libpq-dev
 
       - name: node v14.15.1のセットアップ
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.4.1
         with:
           node-version: '14.15.1'
 
